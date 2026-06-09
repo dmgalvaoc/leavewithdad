@@ -363,7 +363,7 @@
       }
 
       if (!checkRateLimit()) {
-        errEl.textContent = 'You've posted 3 comments this hour. Please try again later.';
+        errEl.textContent = "You've posted 3 comments this hour. Please try again later.";
         errEl.style.display = '';
         return;
       }
