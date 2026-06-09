@@ -6,7 +6,7 @@
   const scriptTag = document.currentScript;
   const SUPABASE_URL    = scriptTag.dataset.supabaseUrl    || 'https://soarurpqwyqxejvkuumi.supabase.co';
   const SUPABASE_ANON   = scriptTag.dataset.supabaseAnonKey || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNvYXJ1cnBxd3lxeGVqdmt1dW1pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEwMjI5NzUsImV4cCI6MjA5NjU5ODk3NX0.D2xSyarj32HFOLjT8hWbQm0QGFQSOk8-Jo7oGHi4Cog';
-  const ADMIN_USER_ID   = scriptTag.dataset.adminUserId || '';
+  const ADMIN_USER_ID   = scriptTag.dataset.adminUserId || 'ac64773e-392b-4350-871d-efba51c45574';
 
   if (!SUPABASE_URL || !SUPABASE_ANON) {
     console.error('[LWD Comments] Missing data-supabase-url or data-supabase-anon-key');
