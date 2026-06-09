@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Brand-New Lennox Was Leaking. Two Techs Couldn't Find It. A $21 Detector Did. — Leave With Dad</title>
+  <meta name="description" content="I got home from a trip abroad to a hot house, a Lennox system only 19 months old and under warranty, and two technicians who couldn't find the refrigerant leak. Then I spent $21 on Amazon." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tabler Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8668596875719653"
+     crossorigin="anonymous"></script>
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:      #2C3E35;
+      --deep-green: #1e2e27;
+      --terra:      #C4622D;
+      --parchment:  #F5F0E8;
+      --muted:      #8aaa97;
+      --border-sub: #3d5a4d;
+      --card-border:#ddd8ce;
+      --white:      #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--parchment); color: #2a2a2a; font-size: 16px; line-height: 1.6; }
+    a { color: var(--terra); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Topbar */
+    .topbar { background: var(--green); padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .logo { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 22px; color: var(--parchment); letter-spacing: 0.02em; white-space: nowrap; }
+    .logo span { color: var(--terra); }
+    .topbar-right { display: flex; align-items: center; gap: 12px; }
+    .search-box { display: flex; align-items: center; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; padding: 6px 12px; gap: 8px; }
+    .search-box input { background: transparent; border: none; outline: none; color: var(--parchment); font-family: 'Inter', sans-serif; font-size: 14px; width: 180px; }
+    .search-box input::placeholder { color: var(--muted); }
+    .search-box .ti { color: var(--muted); font-size: 16px; }
+    .btn-subscribe { background: var(--terra); color: var(--white); border: none; border-radius: 6px; padding: 8px 16px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+
+    /* Nav */
+    .nav { background: var(--deep-green); border-bottom: 3px solid var(--terra); overflow-x: auto; }
+    .nav ul { list-style: none; display: flex; gap: 0; padding: 0 16px; }
+    .nav ul li a { display: flex; align-items: center; gap: 7px; color: var(--muted); font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; padding: 14px 18px; border-bottom: 3px solid transparent; margin-bottom: -3px; white-space: nowrap; text-decoration: none; }
+    .nav ul li a:hover, .nav ul li a.active { color: var(--parchment); background: var(--green); border-bottom-color: var(--terra); text-decoration: none; }
+    .nav ul li a .ti { font-size: 16px; }
+
+    /* Article Layout */
+    .article-wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px 64px; }
+    .article-breadcrumb { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--muted); margin-bottom: 20px; }
+    .article-breadcrumb a { color: var(--terra); }
+    .article-category { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--terra); margin-bottom: 12px; }
+    .article-title { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(26px, 4vw, 38px); color: #1a2a22; line-height: 1.15; margin-bottom: 14px; }
+    .article-kicker { font-family: 'Playfair Display', serif; font-style: italic; color: var(--terra); font-size: 18px; line-height: 1.5; margin-bottom: 24px; }
+    .article-meta { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border); margin-bottom: 36px; font-family: 'Inter', sans-serif; font-size: 12px; color: #888; }
+    .article-meta .author { display: flex; align-items: center; gap: 8px; color: var(--green); font-weight: 600; font-size: 13px; }
+    .article-meta .author-avatar { width: 30px; height: 30px; border-radius: 50%; background: var(--terra); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 14px; color: var(--white); }
+
+    /* Article Body */
+    .article-body { font-size: 17px; line-height: 1.8; color: #2a2a2a; }
+    .article-body p { margin-bottom: 22px; }
+    .article-body h2 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 24px; color: var(--green); margin: 40px 0 16px; line-height: 1.25; }
+    .article-body h3 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 19px; color: #1a2a22; margin: 32px 0 12px; }
+    .article-body strong { color: #1a2a22; }
+    .article-body blockquote { border-left: 4px solid var(--terra); padding: 12px 20px; margin: 28px 0; background: rgba(196,98,45,0.06); border-radius: 0 6px 6px 0; font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: var(--green); line-height: 1.6; }
+
+    /* Product Box */
+    .product-box { border: 2px solid var(--terra); border-radius: 10px; padding: 24px; margin: 36px 0; background: #fff; display: flex; align-items: flex-start; gap: 20px; }
+    .product-img { width: 110px; min-width: 110px; height: 110px; border-radius: 8px; overflow: hidden; border: 1px solid var(--card-border); background: #f9f9f9; display: flex; align-items: center; justify-content: center; }
+    .product-img img { width: 100%; height: 100%; object-fit: contain; }
+    .product-img-placeholder { font-size: 48px; line-height: 1; }
+    .product-box-content h4 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 18px; color: #1a2a22; margin-bottom: 6px; }
+    .product-box-content p { font-size: 14px; color: #555; margin-bottom: 14px !important; line-height: 1.6; }
+    .product-box-price { font-family: 'Inter', sans-serif; font-size: 13px; color: #888; margin-bottom: 12px !important; }
+    .product-box-price strong { font-size: 22px; color: var(--terra); }
+    .btn-amazon { display: inline-flex; align-items: center; gap: 8px; background: #FF9900; color: #111; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; padding: 10px 20px; border-radius: 6px; text-decoration: none; }
+    .btn-amazon:hover { opacity: .88; text-decoration: none; }
+
+    /* Tip / Warning boxes */
+    .tip-box { background: #e8f0eb; border-left: 4px solid var(--green); border-radius: 0 8px 8px 0; padding: 18px 20px; margin: 28px 0; font-size: 15px; }
+    .tip-box strong { display: block; font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 6px; }
+    .warning-box { background: #fdf3ee; border-left: 4px solid var(--terra); border-radius: 0 8px 8px 0; padding: 18px 20px; margin: 28px 0; font-size: 15px; }
+    .warning-box strong { display: block; font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--terra); margin-bottom: 6px; }
+
+    /* Affiliate Disclosure */
+    .affiliate-disclosure { font-family: 'Inter', sans-serif; font-size: 12px; color: #999; font-style: italic; border-top: 1px solid var(--card-border); padding-top: 16px; margin-top: 48px; }
+
+    /* Ad Units */
+    .ad-unit { overflow: hidden; text-align: center; margin: 36px 0; min-height: 90px; }
+
+    /* Comments Section */
+    .comments-section { max-width: 760px; margin: 0 auto; padding: 0 24px 64px; }
+    .comments-header { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 26px; color: var(--green); margin-bottom: 8px; }
+    .comments-subhead { font-family: 'Inter', sans-serif; font-size: 14px; color: #666; margin-bottom: 28px; }
+    .comments-subhead a { color: var(--terra); font-weight: 600; }
+    #disqus_thread { min-height: 200px; }
+
+    /* Dad Strip */
+    .dad-strip { background: var(--green); padding: 40px 24px; }
+    .dad-strip-inner { max-width: 700px; margin: 0 auto; display: flex; align-items: flex-start; gap: 20px; }
+    .dad-avatar { width: 52px; height: 52px; min-width: 52px; border-radius: 50%; background: var(--terra); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 22px; color: var(--white); }
+    .dad-text blockquote { font-family: 'Playfair Display', serif; font-style: italic; font-size: 17px; color: var(--parchment); line-height: 1.65; margin-bottom: 10px; }
+    .dad-signoff { font-family: 'Playfair Display', serif; font-style: italic; color: var(--terra); font-size: 13px; font-weight: 600; }
+
+    /* Footer */
+    footer { background: var(--deep-green); border-top: 1px solid var(--border-sub); padding: 28px 24px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 13px; color: var(--muted); font-family: 'Inter', sans-serif; }
+    .footer-links a:hover { color: var(--parchment); }
+    .footer-copy { font-size: 12px; color: var(--muted); font-family: 'Inter', sans-serif; }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .search-box { display: none; }
+      .article-wrap { padding: 32px 16px 48px; }
+      .product-box { flex-direction: column; }
+      .product-img { width: 100%; height: 160px; }
+      .dad-strip-inner { flex-direction: column; }
+      .comments-section { padding: 0 16px 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <header class="topbar">
+    <a href="/" class="logo">leave with <span>dad</span></a>
+    <div class="topbar-right">
+      <div class="search-box">
+        <i class="ti ti-search"></i>
+        <input type="search" placeholder="Search the guide…" aria-label="Search" />
+      </div>
+      <button class="btn-subscribe">Subscribe</button>
+    </div>
+  </header>
+
+  <!-- Nav -->
+  <nav class="nav" aria-label="Main navigation">
+    <ul>
+      <li><a href="/"><i class="ti ti-building-community"></i> Plantation</a></li>
+      <li><a href="/#home"><i class="ti ti-home-2"></i> Home</a></li>
+      <li><a href="/#yard"><i class="ti ti-leaf"></i> Yard &amp; Garden</a></li>
+      <li><a href="/#recommends" class="active"><i class="ti ti-star"></i> Dad Recommends</a></li>
+    </ul>
+  </nav>
+
+  <!-- Article -->
+  <div class="article-wrap">
+
+    <p class="article-breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#home">Home</a> &rsaquo; HVAC</p>
+    <p class="article-category">Home · HVAC · Dad Recommends</p>
+
+    <h1 class="article-title">My Brand-New Lennox Was Leaking. Two Techs Couldn't Find It. A $21 Detector Did.</h1>
+
+    <p class="article-kicker">I got home from a trip abroad at 7am on a Friday before Memorial Day weekend to find my house at 85°F. The Lennox system was 19 months old, under warranty, and leaking refrigerant somewhere nobody would bother to look. Here's how I found it myself — and what it ended up costing.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">D</div>
+        Dad
+      </div>
+      <span>June 2026</span>
+      <span>·</span>
+      <span>8 min read</span>
+      <span>·</span>
+      <span>Plantation, FL</span>
+    </div>
+
+    <div class="article-body">
+
+      <p>There's a specific kind of frustration that hits you when you land after an international flight, step through your front door at 7 in the morning, and realize your house is <strong>85 degrees</strong>. You've been gone for two weeks. You're running on whatever passes for sleep on a redeye. Your AC should be working fine — you had a whole new Lennox system installed nineteen months ago. And yet.</p>
+
+      <p>That's where this story starts. And it ends with a $21 Amazon gadget proving two grown professionals wrong. But let's go in order.</p>
+
+      <h2>Friday Afternoon. 5pm. Two Hours Late. Pouring Rain.</h2>
+
+      <p>I called the company that installed the system first thing. Explained the situation. They scheduled a visit for 3pm that same Friday.</p>
+
+      <p>The technician showed up two hours late — right around 5pm, right as it started pouring. I'd already paid <strong>$155</strong> just for that visit. He looked at the system — a <strong>Lennox CBA38MV-048-230-6-02</strong> air handler paired with an <strong>EL18XCVS048-230A01</strong> condenser, installed nineteen months earlier and still fully under warranty. He couldn't detect any leak from the air handler. His conclusion: it was probably the external unit. His problem: it was pouring outside, so he wasn't able to work out there. His recommendation: call us back and schedule another visit.</p>
+
+      <blockquote>"You're kidding me." I was not, in fact, kidding him. But he was already headed for the door.</blockquote>
+
+      <p>I told him to at least take a look before leaving. He did — briefly — then confirmed his recommendation and left. I called the company immediately. They were closed. It was Friday evening going into Memorial Day weekend. The earliest anyone was getting back to me was Tuesday.</p>
+
+      <h2>Enter the Savior.</h2>
+
+      <p>Same Friday evening, I found a local independent technician — the kind of guy who picks up the phone himself and shows up when you need him. A Colombian guy running his own small shop. I'm going to call him the Savior, because that's what he was.</p>
+
+      <div class="tip-box">
+        <strong>Dad's note</strong>
+        The Savior is a real person and I'd vouch for him without hesitation. If you want his contact info, <a href="#comments">ask in the comments below</a> and I'll send it your way.
+      </div>
+
+      <p>The Savior checked the system carefully. Couldn't find the leak either — it was that well hidden. His assessment was honest: he could recharge the system so I'd have cool air through the long weekend, but the leak was still there, and since the unit was under warranty, I needed to make the installer come back and fix it. For free.</p>
+
+      <p>I paid him <strong>$727</strong> for the recharge and his time. Fair. I'm an engineer. I hate not knowing where problems are coming from. I was uncomfortable with the situation the same way I'm uncomfortable with any unresolved variable. So I did what engineers do when they can't get a straight answer from the people who are supposed to have one.</p>
+
+      <p>I went on Amazon.</p>
+
+      <h2>The $21 Device That Changed Everything</h2>
+
+      <!-- Product Box -->
+      <div class="product-box">
+        <div class="product-img">
+          <a href="https://amzn.to/4xfj556" target="_blank" rel="nofollow sponsored">
+            <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B0CCV7JZBH&Format=_SL160_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=leavewithdad-20"
+                 alt="Elitech CLD-100 Refrigerant Leak Detector"
+                 style="max-width:110px;max-height:110px;object-fit:contain;" />
+          </a>
+        </div>
+        <div class="product-box-content">
+          <h4>Elitech CLD-100 Refrigerant Leak Detector</h4>
+          <p>Detects R-410A, R-22, R-134a and all common HVAC refrigerants. Audible alarm speeds up as you approach the source. 8" flexible probe. Adjustable sensitivity. No license required to own one.</p>
+          <p class="product-box-price">I paid <strong>$21</strong> — next-day delivery.</p>
+          <a href="https://amzn.to/4xfj556" class="btn-amazon" target="_blank" rel="nofollow sponsored">
+            <i class="ti ti-brand-amazon"></i> View on Amazon
+          </a>
+        </div>
+      </div>
+
+      <p>It came to my front door Saturday — next-day delivery, exactly as promised. Memorial Day weekend, and I had a tool. Now I just needed to wait until the house cooled down enough to think straight.</p>
+
+      <h2>DIY Leak Hunt: Systematic, Outdoor First</h2>
+
+      <p>I did my homework. Refrigerant leaks most commonly occur at the condenser coils, the service valves, the line set connections, or the evaporator coil inside the air handler. I decided to be methodical about it.</p>
+
+      <p>I went outside to the outdoor condenser unit first. Turned on the detector. Started moving it slowly around the refrigerant lines, the service valves, the coils. The device stayed quiet — a steady, patient silence that said: <em>nothing here, keep moving.</em></p>
+
+      <p>Back inside to the air handler.</p>
+
+      <p>I opened the unit and moved the detector toward the evaporator coil. That's when it changed. <strong>Beep. Beep. Beep-beep-beep-beep.</strong> The faster the beeping, the closer the source. I had found it. Or at least, I'd found exactly where to look.</p>
+
+      <h2>Tuesday. Same Tech. Still Laughing.</h2>
+
+      <!-- Ad between sections -->
+      <div class="ad-unit">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-8668596875719653"
+             data-ad-slot="auto"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+
+      <p>Tuesday. Long weekend over. I called the company, explained that I had located the leak myself, and asked them to send someone to repair it. Under warranty. No charge for parts.</p>
+
+      <p>They sent the same tech from Friday.</p>
+
+      <p>He laughed when I showed him the device. Not a polite chuckle — an actual dismissive laugh. He told me that even if you opened a bottle of refrigerant right next to it, that thing wouldn't detect anything.</p>
+
+      <p>So we went to his van. He opened a bottle of refrigerant. I held the detector near it.</p>
+
+      <p><em>Beep-beep-beep-beep-beep.</em></p>
+
+      <p>The tech looked at the device. Then at me. Then back at the device. "Okay," he said slowly. "It's detecting." Then, almost immediately: "But it's still not going to find you an actual leak. You're going to need to pay about a thousand dollars to cut the lines and do a full inspection."</p>
+
+      <div class="warning-box">
+        <strong>Watch for this</strong>
+        If a warranty tech tells you it'll cost $800–$1,000 just to "locate" a leak on a system that's still under warranty, slow down. That's not a diagnosis — that's a way to run up a bill. Get a second opinion before agreeing to anything.
+      </div>
+
+      <h2>The Savior, Again. UV Light. Five Minutes.</h2>
+
+      <p>I called the Savior back. Explained the whole situation — the warranty, the tech's attitude, the device readings, the exact spot where it was beeping. He came right over. No hesitation.</p>
+
+      <p>I showed him where the detector had gone off. He grabbed his UV light and went straight to the evaporator coil in the air handler — exactly where the $21 device had pointed. Five minutes later, he had it. A leak, right there, plain as day under the UV lamp.</p>
+
+      <p>His read on the situation: <em>"This is under warranty. You shouldn't pay for parts. Call them, tell them where the leak is, and make them replace the unit."</em></p>
+
+      <h2>The Resolution (And the Bill)</h2>
+
+      <p>I called the company one more time. I specifically asked that they not send the same technician, and I explained why. They sent someone different.</p>
+
+      <p>The new tech verified the leak. Certified it was exactly where I said it was. The <strong>Lennox CBA38MV-048-230-6-02</strong> air handler — installed only 19 months earlier — had to be replaced entirely. Under warranty, that meant no charge for the equipment.</p>
+
+      <p>Labor: <strong>$1,613.</strong></p>
+
+      <p>Add the $155 first-visit fee and the Savior's $727 recharge, and you're at <strong>$2,495 out of pocket</strong> on a system that was still under warranty. That's not nothing. But compare that to what the Friday tech was proposing: a thousand-dollar "inspection" to locate something a $21 device had already found — on top of whatever labor they'd charge for the actual repair.</p>
+
+      <h2>What I Learned (That Dad Would Have Told You)</h2>
+
+      <p><strong>Your new HVAC warranty covers parts, not labor.</strong> Read it. Most residential systems — including Lennox — come with 5–10 year parts warranties, but labor is on you. Every visit, every repair, every replacement: labor. The $1,613 I paid was entirely labor to install the replacement air handler. Budget for it, because even a warranty claim will cost you.</p>
+
+      <p><strong>The company that installed it is not always your best option for the repair.</strong> The Savior showed up the same Friday evening as the warranty tech — who left two hours late having done nothing — and he found the leak location within five minutes using a UV light and the coordinates my $21 device gave him. That's the difference between someone who's invested in solving your problem and someone running out the clock.</p>
+
+      <p><strong>A $21 detector is leverage.</strong> Not because you're going to fix the leak yourself — refrigerant work requires EPA certification and you should never touch it without a license. But because it gives you information before you're in a room with a technician. When you can walk a tech directly to the source and say "it's beeping here," the conversation changes. They can't dismiss what they can't disprove.</p>
+
+      <p><strong>Know your rights with warranty work in Florida.</strong> If a system is under manufacturer's warranty, the installing company is obligated to honor it. If they're stalling, dismissing your concerns, or trying to charge you for work that should be covered — push back, document everything, and if needed, escalate directly to the manufacturer.</p>
+
+      <!-- Product Box Repeat -->
+      <div class="product-box">
+        <div class="product-img">
+          <a href="https://amzn.to/4xfj556" target="_blank" rel="nofollow sponsored">
+            <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B0CCV7JZBH&Format=_SL160_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=leavewithdad-20"
+                 alt="Elitech CLD-100 Refrigerant Leak Detector"
+                 style="max-width:110px;max-height:110px;object-fit:contain;" />
+          </a>
+        </div>
+        <div class="product-box-content">
+          <h4>Get It Before You Need It</h4>
+          <p>In South Florida, AC isn't optional and HVAC problems don't wait for convenient timing. If your system ever seems off, this is how you walk into the conversation informed — before spending $155 on a visit that goes nowhere.</p>
+          <p class="product-box-price">Around <strong>$21</strong> on Amazon.</p>
+          <a href="https://amzn.to/4xfj556" class="btn-amazon" target="_blank" rel="nofollow sponsored">
+            <i class="ti ti-brand-amazon"></i> View on Amazon
+          </a>
+        </div>
+      </div>
+
+      <p>My house is cool. The unit is new. The Savior is still my first call for anything HVAC-related in Plantation. And I have a refrigerant detector sitting in my garage, ready for next time.</p>
+
+      <p>You're welcome. Now go check your thermostat.</p>
+
+      <p class="affiliate-disclosure">This article contains affiliate links. If you purchase through them, we may earn a small commission at no extra cost to you. We only recommend products we've actually used.</p>
+
+    </div><!-- /article-body -->
+
+  </div><!-- /article-wrap -->
+
+  <!-- Dad Strip -->
+  <section class="dad-strip">
+    <div class="dad-strip-inner">
+      <div class="dad-avatar">D</div>
+      <div class="dad-text">
+        <blockquote>
+          "A refrigerant leak detector doesn't fix your AC. But it tells you exactly where to look — and that's the difference between a tech who brushes you off and one who has to take you seriously."
+        </blockquote>
+        <p class="dad-signoff">— Dad. Now go check your thermostat.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ad above comments -->
+  <div class="ad-unit" style="padding: 24px; background: var(--parchment);">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-8668596875719653"
+         data-ad-slot="auto"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <!-- Comments / Questions -->
+  <section class="comments-section" id="comments">
+    <h2 class="comments-header">Questions &amp; Comments</h2>
+    <p class="comments-subhead">Had a similar situation? Need the Savior's contact? <a href="#comments">Leave a comment below</a> and I'll get back to you.</p>
+    <script src="https://giscus.app/client.js"
+            data-repo="dmgalvaoc/leavewithdad"
+            data-repo-id="R_kgDOS1AGqg"
+            data-category="Announcements"
+            data-category-id="DIC_kwDOS1AGqs4C-1g9"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="bottom"
+            data-theme="preferred_color_scheme"
+            data-lang="en"
+            crossorigin="anonymous"
+            async>
+    </script>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <nav class="footer-links">
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/advertise">Advertise</a>
+      </nav>
+      <p class="footer-copy">&copy; 2026 Leave With Dad · Plantation, FL</p>
+    </div>
+  </footer>
+
+</body>
+</html>
