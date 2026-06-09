@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Leave With Dad</title>
+  <meta name="description" content="Privacy Policy for leavewithdad.com — what we collect, how we use it, and how to request deletion." />
+  <meta name="robots" content="noindex" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tabler Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:      #2C3E35;
+      --deep-green: #1e2e27;
+      --terra:      #C4622D;
+      --parchment:  #F5F0E8;
+      --muted:      #8aaa97;
+      --card-border:#ddd8ce;
+      --white:      #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--parchment); color: #2a2a2a; font-size: 16px; line-height: 1.6; }
+    a { color: var(--terra); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Topbar */
+    .topbar { background: var(--green); padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .logo { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 22px; color: var(--parchment); letter-spacing: 0.02em; white-space: nowrap; text-decoration: none; }
+    .logo span { color: var(--terra); }
+    .logo:hover { text-decoration: none; }
+    .topbar-right { display: flex; align-items: center; gap: 12px; }
+    .search-box { display: flex; align-items: center; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; padding: 6px 12px; gap: 8px; }
+    .search-box input { background: transparent; border: none; outline: none; color: var(--parchment); font-family: 'Inter', sans-serif; font-size: 14px; width: 180px; }
+    .search-box input::placeholder { color: var(--muted); }
+    .search-box .ti { color: var(--muted); font-size: 16px; }
+    .btn-subscribe { background: var(--terra); color: var(--white); border: none; border-radius: 6px; padding: 8px 16px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+
+    /* Nav */
+    .nav { background: var(--deep-green); border-bottom: 3px solid var(--terra); overflow-x: auto; }
+    .nav ul { list-style: none; display: flex; gap: 0; padding: 0 16px; }
+    .nav ul li a { display: flex; align-items: center; gap: 7px; color: var(--muted); font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; padding: 14px 18px; border-bottom: 3px solid transparent; margin-bottom: -3px; white-space: nowrap; text-decoration: none; }
+    .nav ul li a:hover { color: var(--parchment); background: var(--green); border-bottom-color: var(--terra); text-decoration: none; }
+    .nav ul li a .ti { font-size: 16px; }
+
+    /* Page layout */
+    .page-wrap { max-width: 720px; margin: 0 auto; padding: 52px 24px 80px; }
+
+    .page-eyebrow { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--terra); margin-bottom: 10px; }
+
+    .page-title { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(28px, 4vw, 40px); color: var(--green); line-height: 1.15; margin-bottom: 8px; }
+
+    .page-updated { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--muted); margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px solid var(--card-border); }
+
+    /* Content */
+    .page-content { font-size: 16px; line-height: 1.8; color: #2a2a2a; }
+
+    .page-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 21px;
+      color: var(--green);
+      margin: 40px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .page-content h2:first-child { margin-top: 0; }
+
+    .page-content p { margin-bottom: 18px; }
+
+    .page-content ul {
+      margin: 0 0 18px 24px;
+    }
+
+    .page-content ul li { margin-bottom: 8px; }
+
+    .page-content a { color: var(--terra); }
+    .page-content a:hover { text-decoration: underline; }
+
+    .page-content strong { color: #1a2a22; font-weight: 600; }
+
+    .contact-block {
+      background: var(--white);
+      border-radius: 8px;
+      border: 1px solid var(--card-border);
+      padding: 20px 24px;
+      margin-top: 40px;
+    }
+
+    .contact-block p { margin-bottom: 0; font-size: 15px; }
+    .contact-block .contact-label { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+
+    /* Footer */
+    footer { background: var(--deep-green); padding: 28px 24px; margin-top: 0; }
+    .footer-inner { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; }
+    .footer-links a { color: var(--muted); font-size: 13px; font-weight: 500; text-decoration: none; }
+    .footer-links a:hover { color: var(--parchment); }
+    .footer-copy { font-size: 12px; color: #4a6a58; }
+
+    @media (max-width: 600px) {
+      .search-box { display: none; }
+      .topbar { padding: 12px 16px; }
+      .page-wrap { padding: 36px 16px 64px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Topbar ===== -->
+  <header class="topbar">
+    <a href="/" class="logo">leave with <span>dad</span></a>
+    <div class="topbar-right">
+      <div class="search-box">
+        <i class="ti ti-search"></i>
+        <input type="search" placeholder="Search the guide…" aria-label="Search" />
+      </div>
+      <button class="btn-subscribe">Subscribe</button>
+    </div>
+  </header>
+
+  <!-- ===== Nav ===== -->
+  <nav class="nav" aria-label="Main navigation">
+    <ul>
+      <li><a href="/#plantation"><i class="ti ti-building-community"></i> Plantation</a></li>
+      <li><a href="/#home"><i class="ti ti-home-2"></i> Home</a></li>
+      <li><a href="/#yard"><i class="ti ti-leaf"></i> Yard &amp; Garden</a></li>
+      <li><a href="/#recommends"><i class="ti ti-star"></i> Dad Recommends</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== Page Content ===== -->
+  <main class="page-wrap">
+
+    <p class="page-eyebrow">Legal</p>
+    <h1 class="page-title">Privacy Policy</h1>
+    <p class="page-updated">Last updated: June 2026</p>
+
+    <div class="page-content">
+
+      <h2>What we collect</h2>
+      <p>
+        When you sign in with Google or Facebook, we receive your <strong>name</strong>,
+        <strong>email address</strong>, and <strong>profile picture</strong> from that provider.
+        We store these to display your name and avatar next to the comments you leave on the site.
+        We also store the <strong>text of any comments you post</strong>.
+      </p>
+      <p>
+        We do not collect payment information, phone numbers, or any sensitive personal data.
+      </p>
+
+      <h2>How we use it</h2>
+      <p>
+        Your name and avatar are displayed publicly next to your comments.
+        Your email address is <strong>never displayed publicly</strong> — we only use it to
+        identify your account.
+        We do not sell, rent, or trade your personal data to third parties.
+      </p>
+
+      <h2>Google AdSense</h2>
+      <p>
+        This site uses <strong>Google AdSense</strong> to display advertisements. Google AdSense
+        may set cookies on your device and collect browsing data to show ads that are relevant to you.
+        This is handled entirely by Google. You can learn more about how Google uses data at
+        <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">
+          Google's Privacy &amp; Terms
+        </a>.
+      </p>
+      <p>
+        You can opt out of personalized advertising by visiting
+        <a href="https://adssettings.google.com" target="_blank" rel="noopener">Google Ads Settings</a>.
+      </p>
+
+      <h2>Affiliate links</h2>
+      <p>
+        Some links on this site are <strong>affiliate links</strong> — including links to Amazon
+        (Amazon Associates program), Home Depot, and other retailers via ShareASale.
+        When you click an affiliate link and make a purchase, we may earn a small commission
+        at no extra cost to you.
+        Clicking affiliate links may set cookies on those third-party sites according to their own
+        privacy policies.
+      </p>
+
+      <h2>Cookies and local storage</h2>
+      <p>
+        We use browser <strong>localStorage</strong> (not traditional cookies) to remember whether
+        you have already liked a page or a comment, so your reaction isn't counted twice on refresh.
+        No personal information is stored in localStorage — only anonymous flags tied to your browser.
+      </p>
+      <p>
+        Supabase (our database provider) may set authentication session cookies when you sign in.
+        These expire when your session ends or when you sign out.
+      </p>
+
+      <h2>Data retention</h2>
+      <p>
+        Your comments and profile information (name, avatar URL) are retained for as long as your
+        account remains active. You may request deletion at any time — see below.
+      </p>
+
+      <h2>Third-party services</h2>
+      <ul>
+        <li><strong>Supabase</strong> — database and authentication hosting. Data is stored on
+            Supabase servers. See <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase Privacy Policy</a>.</li>
+        <li><strong>Google OAuth / Google AdSense</strong> — sign-in and advertising.
+            See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</li>
+        <li><strong>Facebook OAuth</strong> — sign-in.
+            See <a href="https://www.facebook.com/policy" target="_blank" rel="noopener">Facebook Data Policy</a>.</li>
+        <li><strong>GitHub Pages</strong> — website hosting.
+            See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a>.</li>
+      </ul>
+
+      <h2>Your rights</h2>
+      <p>
+        You have the right to access, correct, or delete the personal data we hold about you.
+        To exercise any of these rights, or to request deletion of your account and comments,
+        please email us using the contact information below.
+      </p>
+
+      <div class="contact-block">
+        <p class="contact-label">Contact &amp; Data Deletion Requests</p>
+        <p>
+          Email <a href="mailto:diegomgalvaoc@gmail.com">diegomgalvaoc@gmail.com</a> with the
+          subject line <strong>Delete my data</strong>. Include the name or email address associated
+          with your account. We will delete your data within 30 days and confirm by reply.
+        </p>
+        <p style="margin-top:10px;">
+          You can also visit the
+          <a href="/data-deletion/">Data Deletion Instructions</a> page for full details.
+        </p>
+      </div>
+
+    </div><!-- /page-content -->
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="footer-inner">
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/data-deletion/">Data Deletion</a>
+        <a href="/advertise">Advertise</a>
+      </nav>
+      <p class="footer-copy">&copy; 2026 Leave With Dad · Plantation, FL</p>
+    </div>
+  </footer>
+
+</body>
+</html>
