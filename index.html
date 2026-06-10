@@ -169,21 +169,6 @@
         </div>
       </article>
 
-      <!-- Card 2 -->
-      <article class="card" data-tags="plantation home">
-        <div class="card-accent terra"></div>
-        <div class="card-body">
-          <p class="card-category">Home · HOA</p>
-          <h3>Your HOA Has Rules About That. Yes, That Too.</h3>
-          <p class="card-kicker">Spoiler: the HOA always has opinions.</p>
-          <p>Fence height, driveway pavers, the color of your mailbox — the CC&Rs are 68 pages for a reason. We read them so you don't have to. Well, mostly.</p>
-        </div>
-        <div class="card-footer">
-          <span class="card-date">Coming soon</span>
-          <a href="#" class="card-read" style="opacity:0.4;pointer-events:none;">Read →</a>
-        </div>
-      </article>
-
       <!-- Card 3 -->
       <article class="card" data-tags="plantation yard">
         <div class="card-accent forest"></div>
@@ -309,6 +294,9 @@
     // ── Search ────────────────────────────────────────────────────
     const searchInput = document.querySelector('.search-box input[type="search"]');
     let activeTab = TAB_LABELS[initHash] ? initHash : 'plantation';
+    let searchIndex = [];
+
+    fetch('/search-index.json').then(r => r.json()).then(data => { searchIndex = data; }).catch(() => {});
 
     navLinks.forEach(link => {
       link.addEventListener('click', function () {
@@ -320,24 +308,35 @@
       });
     });
 
+    function runSearch(q) {
+      if (!q) { filterTab(activeTab); return; }
+
+      if (heading) heading.innerHTML = 'Search Results';
+      navLinks.forEach(l => l.classList.remove('active'));
+
+      // URLs of articles whose full text matches
+      const matchedUrls = new Set(
+        searchIndex
+          .filter(a => (a.title + ' ' + a.kicker + ' ' + a.body).toLowerCase().includes(q))
+          .map(a => a.url)
+      );
+
+      let visible = 0;
+      cards.forEach(card => {
+        const cardText = card.textContent.toLowerCase();
+        const cardLink = (card.querySelector('a.card-read') || {}).getAttribute('href') || '';
+        const show = cardText.includes(q) || matchedUrls.has(cardLink);
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+
+      if (emptyMsg) emptyMsg.style.display = visible === 0 ? '' : 'none';
+      if (grid)     grid.style.display     = visible === 0 ? 'none' : '';
+    }
+
     if (searchInput) {
       searchInput.addEventListener('input', function () {
-        const q = this.value.trim().toLowerCase();
-        if (!q) { filterTab(activeTab); return; }
-
-        if (heading) heading.innerHTML = 'Search Results';
-        navLinks.forEach(l => l.classList.remove('active'));
-
-        let visible = 0;
-        cards.forEach(card => {
-          const text = card.textContent.toLowerCase();
-          const show = text.includes(q);
-          card.style.display = show ? '' : 'none';
-          if (show) visible++;
-        });
-
-        if (emptyMsg) emptyMsg.style.display = visible === 0 ? '' : 'none';
-        if (grid)     grid.style.display     = visible === 0 ? 'none' : '';
+        runSearch(this.value.trim().toLowerCase());
       });
     }
 
