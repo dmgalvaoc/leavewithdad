@@ -53,15 +53,14 @@
 
 /* Native share button — only shown on devices that support it */
 .lwd-share-btn--native {
-  background: #C4622D;
-  border-color: #C4622D;
-  color: #ffffff;
+  background: #ffffff;
+  border-color: #ddd8ce;
+  color: #2C3E35;
 }
 
 .lwd-share-btn--native:hover {
-  opacity: 0.88;
-  color: #ffffff;
   border-color: #C4622D;
+  color: #C4622D;
 }
 
 /* Copy success state */
