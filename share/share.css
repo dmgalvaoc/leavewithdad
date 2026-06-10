@@ -1,0 +1,103 @@
+/* ── Leave With Dad — Share Bar ───────────────────────────────────── */
+.lwd-share {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 14px 0;
+  border-top: 1px solid #ddd8ce;
+  border-bottom: 1px solid #ddd8ce;
+  margin: 24px 0;
+}
+
+.lwd-share-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #8aaa97;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-right: 4px;
+  white-space: nowrap;
+}
+
+.lwd-share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 20px;
+  border: 1.5px solid #ddd8ce;
+  background: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #2C3E35;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.lwd-share-btn:hover {
+  text-decoration: none;
+  border-color: #C4622D;
+  color: #C4622D;
+}
+
+.lwd-share-btn svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+/* Native share button — only shown on devices that support it */
+.lwd-share-btn--native {
+  background: #C4622D;
+  border-color: #C4622D;
+  color: #ffffff;
+}
+
+.lwd-share-btn--native:hover {
+  opacity: 0.88;
+  color: #ffffff;
+  border-color: #C4622D;
+}
+
+/* Copy success state */
+.lwd-share-btn--copy.lwd-copied {
+  background: #2C3E35;
+  border-color: #2C3E35;
+  color: #ffffff;
+}
+
+/* Toast */
+.lwd-share-toast {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  background: #1e2e27;
+  color: #F5F0E8;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+  z-index: 9999;
+  white-space: nowrap;
+}
+
+.lwd-share-toast.lwd-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 480px) {
+  .lwd-share { gap: 8px; }
+  .lwd-share-btn { font-size: 12px; padding: 6px 11px; }
+}
