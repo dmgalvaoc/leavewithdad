@@ -48,7 +48,8 @@
     const liUrl  = `https://www.linkedin.com/sharing/share-offsite/?url=${PAGE_URL}`;
     const emUrl  = `mailto:?subject=${PAGE_TITLE}&body=I thought you'd find this useful: ${PAGE_URL}`;
 
-    container.innerHTML = `<span class="lwd-share-label">Share</span><button class="lwd-share-btn lwd-share-btn--copy" id="lwd-copy">${icons.copy} Copy link</button><a class="lwd-share-btn" href="${fbUrl}" target="_blank" rel="noopener">${icons.facebook} Facebook</a><a class="lwd-share-btn" href="${liUrl}" target="_blank" rel="noopener">${icons.linkedin} LinkedIn</a><button class="lwd-share-btn lwd-share-btn--instagram" id="lwd-instagram">${icons.instagram} Instagram</button><a class="lwd-share-btn" href="${emUrl}">${icons.email} Email</a>`;
+    const nativeBtn = navigator.share ? `<button class="lwd-share-btn lwd-share-btn--native" id="lwd-native">${icons.share} Share</button>` : '';
+    container.innerHTML = `<span class="lwd-share-label">Share</span><button class="lwd-share-btn lwd-share-btn--copy" id="lwd-copy">${icons.copy} Copy link</button><a class="lwd-share-btn" href="${fbUrl}" target="_blank" rel="noopener">${icons.facebook} Facebook</a><a class="lwd-share-btn" href="${liUrl}" target="_blank" rel="noopener">${icons.linkedin} LinkedIn</a><button class="lwd-share-btn lwd-share-btn--instagram" id="lwd-instagram">${icons.instagram} Instagram</button><a class="lwd-share-btn" href="${emUrl}">${icons.email} Email</a>${nativeBtn}`;
 
     container.querySelector('#lwd-copy').addEventListener('click', function () {
       copyLink(this);
@@ -61,6 +62,13 @@
         showToast('Copy not supported — select the URL manually');
       });
     });
+
+    const nativeBtnEl = container.querySelector('#lwd-native');
+    if (nativeBtnEl) {
+      nativeBtnEl.addEventListener('click', () => {
+        navigator.share({ title: document.title, url: window.location.href }).catch(() => {});
+      });
+    }
 
   }
 
