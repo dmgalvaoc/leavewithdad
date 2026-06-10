@@ -126,14 +126,13 @@
   <!-- ===== Article Cards ===== -->
   <main class="section-main" id="plantation">
     <div class="section-header">
-      <h2>Latest from the Guide</h2>
-      <a href="#plantation">View all articles →</a>
+      <h2 id="tab-heading">Latest from the Guide</h2>
     </div>
 
-    <div class="cards-grid">
+    <div class="cards-grid" id="cards-grid">
 
       <!-- Card 1 -->
-      <article class="card">
+      <article class="card" data-tags="plantation home recommends">
         <div class="card-accent green"></div>
         <div class="card-body">
           <p class="card-category">Home · HVAC</p>
@@ -142,13 +141,13 @@
           <p>A refrigerant leak. A dismissive technician. A $21 detector from Amazon. Here's how a Plantation homeowner turned a dead-end warranty visit into a full air handler replacement — covered.</p>
         </div>
         <div class="card-footer">
-          <span class="card-date">June 2026</span>
+          <span class="card-date">June 2025</span>
           <a href="/hvac-leak-detector-plantation/" class="card-read">Read →</a>
         </div>
       </article>
 
       <!-- Card 2 -->
-      <article class="card">
+      <article class="card" data-tags="plantation home">
         <div class="card-accent terra"></div>
         <div class="card-body">
           <p class="card-category">Home · HOA</p>
@@ -157,13 +156,13 @@
           <p>Fence height, driveway pavers, the color of your mailbox — the CC&Rs are 68 pages for a reason. We read them so you don't have to. Well, mostly.</p>
         </div>
         <div class="card-footer">
-          <span class="card-date">June 2026</span>
-          <a href="#" class="card-read">Read →</a>
+          <span class="card-date">Coming soon</span>
+          <a href="#" class="card-read" style="opacity:0.4;pointer-events:none;">Read →</a>
         </div>
       </article>
 
       <!-- Card 3 -->
-      <article class="card">
+      <article class="card" data-tags="plantation yard">
         <div class="card-accent forest"></div>
         <div class="card-body">
           <p class="card-category">Yard &amp; Garden · Lawn Care</p>
@@ -178,6 +177,10 @@
       </article>
 
     </div><!-- /cards-grid -->
+
+    <p class="tab-empty" id="tab-empty" style="display:none; text-align:center; padding:40px 0; color:#8aaa97; font-style:italic; font-family:'Playfair Display',serif;">
+      No articles in this section yet — check back soon.
+    </p>
 
     <!-- AdSense: between articles and Dad strip (in-article) -->
     <div class="ad-unit ad-unit--leaderboard">
@@ -230,15 +233,55 @@
 
   <script src="/share/share.js"></script>
 
-  <!-- Vanilla nav active-state on scroll (no framework) -->
   <script>
-    const navLinks = document.querySelectorAll('.nav a');
+    // ── Tab filter ────────────────────────────────────────────────
+    const TAB_LABELS = {
+      plantation: 'Latest from the Guide',
+      home:       'Home',
+      yard:       'Yard &amp; Garden',
+      recommends: 'Dad Recommends',
+    };
+
+    const navLinks  = document.querySelectorAll('.nav a');
+    const cards     = document.querySelectorAll('#cards-grid .card');
+    const heading   = document.getElementById('tab-heading');
+    const emptyMsg  = document.getElementById('tab-empty');
+    const grid      = document.getElementById('cards-grid');
+
+    function filterTab(tab) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector(`.nav a[href="#${tab}"], .nav a[href="/#${tab}"]`);
+      if (active) active.classList.add('active');
+
+      if (heading) heading.innerHTML = TAB_LABELS[tab] || 'Latest from the Guide';
+
+      let visible = 0;
+      cards.forEach(card => {
+        const tags = (card.dataset.tags || '').split(' ');
+        const show = tab === 'plantation' || tags.includes(tab);
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+
+      if (emptyMsg) emptyMsg.style.display = visible === 0 ? '' : 'none';
+      if (grid)     grid.style.display     = visible === 0 ? 'none' : '';
+    }
+
     navLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        navLinks.forEach(l => l.classList.remove('active'));
-        this.classList.add('active');
+      link.addEventListener('click', function (e) {
+        const hash = (this.getAttribute('href') || '').replace(/.*#/, '');
+        if (TAB_LABELS[hash]) {
+          e.preventDefault();
+          filterTab(hash);
+          document.getElementById('plantation').scrollIntoView({ behavior: 'smooth' });
+          history.replaceState(null, '', '#' + hash);
+        }
       });
     });
+
+    // Activate tab from URL hash on load
+    const initHash = window.location.hash.replace('#', '') || 'plantation';
+    filterTab(TAB_LABELS[initHash] ? initHash : 'plantation');
 
     // Fade-in intro section on scroll
     const intro = document.getElementById('about-dad');
