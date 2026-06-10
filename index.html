@@ -102,6 +102,25 @@
     </div>
   </section>
 
+  <!-- ===== Dad Intro ===== -->
+  <section class="dad-intro" id="about-dad" aria-label="Welcome from Dad">
+    <div class="dad-intro-inner">
+      <div class="dad-intro-header">
+        <div class="dad-intro-avatar">D</div>
+        <h2 class="dad-intro-title">Welcome to <em>Leave With Dad</em></h2>
+      </div>
+      <div class="dad-intro-body">
+        <p>A couple of years ago, I moved to Plantation from Atlanta with my family. I didn't know where to go. I didn't know who to call for contractors. I didn't know how things worked in Broward County, or South Florida.</p>
+        <p>So I spent hours — lots of hours — figuring it out. Realtors, YouTube videos, online research. It was purely, classic trial and error. Eventually, I learned the system. I learned what things actually cost in this market. I learned how to navigate HOA approvals and ARC requests. I learned who to trust and who to avoid.</p>
+        <p>Now I'm on the HOA board of my community, and I see the same questions and frustrations from my neighbors — and even friends — repeating over and over again. People moving, others trying to fix their homes, some confused by the bureaucracy and many overwhelmed by the costs of labor.</p>
+        <p>I run a consulting firm by day. I'm an engineer by degree, but in my spare time — in my garage with my power tools — I try to engineer solutions to the problems that come with owning a home. I have a five year old, another baby arriving in no time. Between work, family, and home projects, I research before hiring someone, figure out what things actually cost, and learn how to do things myself as much as I can.</p>
+        <p>This site is here to save you those hours. Whether you're in Plantation, in Broward County, across South Florida, or anywhere dealing with contractor headaches, HOA bureaucracy, and home problems that don't care about zip codes — you'll find practical answers from someone who's been exactly where you are.</p>
+        <p>Oh — and the name? My wife has her career, her hustle, and her hands full. So everything home-related — the contractors, the permits, the maintenance, the school pickups, the weekend projects, taxes, investments — somehow always lands on the same guy. Just leave it with Dad. That's how LeaveWithDad.com was born.</p>
+      </div>
+      <div class="dad-intro-footer">Let's figure things out…</div>
+    </div>
+  </section>
+
   <!-- ===== Article Cards ===== -->
   <main class="section-main" id="plantation">
     <div class="section-header">
@@ -218,6 +237,16 @@
         this.classList.add('active');
       });
     });
+
+    // Fade-in intro section on scroll
+    const intro = document.getElementById('about-dad');
+    if (intro) {
+      const observer = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) { intro.classList.add('visible'); observer.disconnect(); } },
+        { threshold: 0.1 }
+      );
+      observer.observe(intro);
+    }
   </script>
 
 </body>
