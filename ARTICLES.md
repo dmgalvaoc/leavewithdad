@@ -12,9 +12,13 @@
 |---|-------|------|--------|-----------|
 | 14 | Pergola Permit Nightmare | `pergola-permit-plantation` | idea | — |
 | 15 | Water Bills in Plantation | `water-bills-plantation` | **published** | 2026-06-10 |
-| 16 | City of Plantation Quick Reference | `city-of-plantation-quick-reference` | idea | — |
+| 16 | City of Plantation Quick Reference | `city-of-plantation-quick-reference` | **published** | 2026-06-10 |
 | 17 | Plantation Events Feed (Auto) | `plantation-events-feed` | idea | — |
 | 18 | Non-Emergency Police Line | `non-emergency-police-plantation` | idea | — |
+| 21 | Plantation Schools Guide | `plantation-schools-guide` | idea | — |
+| 22 | Freebee — Plantation's Free Electric Rideshare | `freebee-plantation-electric-rideshare` | idea | — |
+| 23 | Plantation Historical Museum | `plantation-historical-museum` | idea | — |
+| 24 | Plantation Farmers Market Guide | `plantation-farmers-market` | idea | — |
 
 ---
 
