@@ -133,6 +133,7 @@
     /* Product Box */
     .product-box { border: 2px solid var(--terra); border-radius: 10px; padding: 24px; margin: 36px 0; background: #fff; display: flex; align-items: flex-start; gap: 20px; }
     .product-box-icon { font-size: 52px; min-width: 64px; text-align: center; line-height: 1; padding-top: 4px; }
+    .product-img { width: 110px; min-width: 110px; height: 110px; object-fit: contain; border-radius: 8px; background: #f7f5f0; padding: 6px; }
     .product-box-content h4 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 18px; color: #1a2a22; margin-bottom: 6px; }
     .product-box-content p { font-size: 14px; color: #555; margin-bottom: 12px !important; line-height: 1.6; }
     .product-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; background: var(--parchment); border: 1px solid var(--card-border); border-radius: 4px; padding: 2px 8px; color: #888; margin-bottom: 10px; }
@@ -187,6 +188,7 @@
       .search-box { display: none; }
       .article-wrap { padding: 32px 16px 48px; }
       .product-box { flex-direction: column; gap: 12px; }
+      .product-img { width: 100%; height: 180px; min-width: unset; }
       .dad-strip-inner { flex-direction: column; }
     }
   </style>
@@ -284,7 +286,7 @@
 
       <!-- Product 1 -->
       <div class="product-box">
-        <div class="product-box-icon">🌱</div>
+        <img class="product-img" src="Scotts_BonusS.jpg" alt="Scotts Turf Builder Bonus S" />
         <div class="product-box-content">
           <span class="product-tag green">Granular · Weed &amp; Feed</span>
           <h4>Scotts Turf Builder Bonus S Southern Weed &amp; Feed</h4>
@@ -298,7 +300,7 @@
 
       <!-- Product 2 -->
       <div class="product-box">
-        <div class="product-box-icon">💧</div>
+        <img class="product-img" src="Scotts_TurfBuilder.jpg" alt="Scotts Turf Builder Southern Lawn Food" />
         <div class="product-box-content">
           <span class="product-tag green">Granular · Fertilizer Only</span>
           <h4>Scotts Turf Builder Southern Lawn Food</h4>
@@ -311,7 +313,7 @@
 
       <!-- Product 3 -->
       <div class="product-box">
-        <div class="product-box-icon">🌿</div>
+        <img class="product-img" src="Spectracide.jpg" alt="Spectracide Weed Stop" />
         <div class="product-box-content">
           <span class="product-tag">Liquid Spray · Weed Prevention</span>
           <h4>Spectracide Weed Stop for Lawns — St. Augustine &amp; Centipede Safe</h4>
@@ -324,7 +326,7 @@
 
       <!-- Product 4 -->
       <div class="product-box">
-        <div class="product-box-icon">🎯</div>
+        <img class="product-img" src="Ortho.jpg" alt="Ortho Weed B Gon" />
         <div class="product-box-content">
           <span class="product-tag">Liquid Spray · Spot Treatment</span>
           <h4>Ortho Weed B Gon — Chickweed, Clover &amp; Oxalis Killer for Lawns</h4>
@@ -408,7 +410,7 @@
 
       <!-- Product: Spreader -->
       <div class="product-box">
-        <div class="product-box-icon">🟢</div>
+        <img class="product-img" src="Scotts_edgeguardMini.jpg" alt="Scotts Turf Builder EdgeGuard Mini Broadcast Spreader" />
         <div class="product-box-content">
           <span class="product-tag green">Spreader · Still Using It</span>
           <h4>Scotts Turf Builder EdgeGuard Mini Broadcast Spreader</h4>
@@ -433,7 +435,7 @@
       </div>
 
       <figure class="article-photo">
-        <img src="IMG_2066.heic" alt="Current backyard — green St. Augustine lawn next to patio in Plantation FL" />
+        <img src="IMG_2066.jpeg" alt="Current backyard — green St. Augustine lawn next to patio in Plantation FL" />
         <figcaption>Same backyard. Better photo coming — but you get the idea.</figcaption>
       </figure>
 
