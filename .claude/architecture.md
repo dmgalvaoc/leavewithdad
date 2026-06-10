@@ -37,6 +37,21 @@ Each article card on homepage must have `data-tags` matching one or more tab key
 - St. Augustine article: `data-tags="plantation yard"`
 - Add new articles by adding a card to the homepage grid with correct data-tags.
 
+## Google Analytics
+Tag ID: G-01DPLMX3L2
+Must be in `<head>` of EVERY page (homepage + every article + legal pages).
+Place before the AdSense script:
+```html
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-01DPLMX3L2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-01DPLMX3L2');
+</script>
+```
+
 ## Per-article checklist (every new article)
 Cowork creates the article folder — Claude wires it up:
 1. `<link rel="stylesheet" href="/share/share.css">` in `<head>`
