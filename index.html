@@ -155,7 +155,7 @@
       </article>
 
       <!-- Card: Water Bills in Plantation -->
-      <article class="card" data-tags="plantation">
+      <article class="card" data-tags="plantation home">
         <div class="card-accent terra"></div>
         <div class="card-body">
           <p class="card-category">Plantation · Utilities · New Resident</p>
@@ -305,6 +305,41 @@
     // Activate tab from URL hash on load
     const initHash = window.location.hash.replace('#', '') || 'plantation';
     filterTab(TAB_LABELS[initHash] ? initHash : 'plantation');
+
+    // ── Search ────────────────────────────────────────────────────
+    const searchInput = document.querySelector('.search-box input[type="search"]');
+    let activeTab = TAB_LABELS[initHash] ? initHash : 'plantation';
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', function () {
+        const hash = (this.getAttribute('href') || '').replace(/.*#/, '');
+        if (TAB_LABELS[hash]) {
+          activeTab = hash;
+          if (searchInput) searchInput.value = '';
+        }
+      });
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', function () {
+        const q = this.value.trim().toLowerCase();
+        if (!q) { filterTab(activeTab); return; }
+
+        if (heading) heading.innerHTML = 'Search Results';
+        navLinks.forEach(l => l.classList.remove('active'));
+
+        let visible = 0;
+        cards.forEach(card => {
+          const text = card.textContent.toLowerCase();
+          const show = text.includes(q);
+          card.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+
+        if (emptyMsg) emptyMsg.style.display = visible === 0 ? '' : 'none';
+        if (grid)     grid.style.display     = visible === 0 ? 'none' : '';
+      });
+    }
 
     // Fade-in intro section on scroll
     const intro = document.getElementById('about-dad');
