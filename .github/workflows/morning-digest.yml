@@ -2,7 +2,7 @@ name: Morning Stats Digest
 
 on:
   schedule:
-    - cron: '0 11 * * *'   # 7:00 AM EDT (UTC-4) — adjust to '0 12 * * *' in winter (EST)
+    - cron: '0 10 * * *'   # 6:00 AM EDT (UTC-4) — adjust to '0 11 * * *' in winter (EST)
   workflow_dispatch:         # allows manual trigger from GitHub Actions tab
 
 jobs:
