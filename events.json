@@ -1,6 +1,6 @@
 {
   "scraped_at": "2026-06-11T04:20:20.544172Z",
-  "event_count": 53,
+  "event_count": 54,
   "events": [
     {
       "id": "31cfd40401f4",
@@ -331,6 +331,16 @@
       "city": "Plantation",
       "source_name": "City of Plantation",
       "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6611/276"
+    },
+    {
+      "id": "nno2026plantation",
+      "title": "National Night Out 2026",
+      "date": "2026-08-04",
+      "date_fmt": "8/4/2026",
+      "time": "5:00 PM – 9:00 PM",
+      "city": "Plantation",
+      "source_name": "Plantation Police Department",
+      "source_url": "https://www.plantation.org/government/departments/police-department"
     },
     {
       "id": "804f1e8e308a",

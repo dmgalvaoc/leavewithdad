@@ -45,6 +45,9 @@
   <!-- Tabler Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
 
+  <!-- Supabase (community events + auth) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
   <link rel="stylesheet" href="/style.css" />
   <link rel="stylesheet" href="/share/share.css" />
 
@@ -260,11 +263,157 @@
       margin-bottom: 8px;
     }
 
+    /* ── Community badge ── */
+    .city-community { background: #f0ebff; color: #5b2d8a; }
+    .community-star { font-size: 0.68rem; color: #5b2d8a; font-weight: 700; }
+
+    /* ── Submit event button ── */
+    .submit-event-btn {
+      margin-left: auto;
+      background: var(--terra);
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+      transition: background .15s;
+    }
+    .submit-event-btn:hover { background: #a8501f; }
+
+    /* ── Modal ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.45);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: #fff;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 520px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 28px 28px 24px;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 14px; right: 16px;
+      background: none; border: none;
+      font-size: 1.3rem; cursor: pointer;
+      color: var(--muted);
+    }
+    .modal-close:hover { color: #333; }
+    .modal h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+    .modal-sub {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    /* Auth prompt inside modal */
+    .modal-auth {
+      text-align: center;
+      padding: 12px 0 8px;
+    }
+    .modal-auth p { font-size: 0.9rem; color: #444; margin-bottom: 16px; }
+    .oauth-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      padding: 9px 18px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      background: #fff;
+      margin: 4px;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .oauth-btn:hover { border-color: var(--green); box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+    .modal-user-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #f5f0e8;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 18px;
+      font-size: 0.83rem;
+    }
+    .modal-user-row strong { color: var(--green); }
+    .modal-signout { margin-left: auto; background: none; border: none; color: var(--muted); font-size: 0.78rem; cursor: pointer; text-decoration: underline; }
+
+    /* Form fields */
+    .form-row { margin-bottom: 14px; }
+    .form-row label { display: block; font-size: 0.78rem; font-weight: 600; color: #444; margin-bottom: 4px; text-transform: uppercase; letter-spacing: .04em; }
+    .form-row input,
+    .form-row select,
+    .form-row textarea {
+      width: 100%;
+      border: 1.5px solid #ddd;
+      border-radius: 7px;
+      padding: 9px 11px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      color: #222;
+      box-sizing: border-box;
+      transition: border-color .15s;
+    }
+    .form-row input:focus,
+    .form-row select:focus,
+    .form-row textarea:focus { outline: none; border-color: var(--green); }
+    .form-row textarea { resize: vertical; min-height: 72px; }
+    .form-row.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+    .form-submit {
+      width: 100%;
+      background: var(--green);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 11px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 6px;
+      transition: background .15s;
+    }
+    .form-submit:hover:not(:disabled) { background: #1e2e27; }
+    .form-submit:disabled { opacity: .6; cursor: default; }
+    .form-msg { font-size: 0.82rem; margin-top: 10px; text-align: center; min-height: 18px; }
+    .form-msg.ok  { color: #2a7a3b; }
+    .form-msg.err { color: #c0392b; }
+
     @media (max-width: 600px) {
       .events-toolbar { padding: 10px 16px; gap: 7px; }
       .events-main    { padding: 20px 16px 40px; }
       .event-card     { padding: 12px 14px; gap: 12px; }
       .event-arrow    { display: none; }
+      .form-row.two-col { grid-template-columns: 1fr; }
+      .modal { padding: 20px 18px 18px; }
     }
   </style>
 </head>
@@ -307,6 +456,9 @@
     <button class="filter-btn" data-city="Pembroke Pines">Pembroke Pines</button>
     <button class="filter-btn" data-city="Weston">Weston</button>
     <button class="filter-btn" data-city="Fort Lauderdale">Fort Lauderdale</button>
+    <button class="submit-event-btn" id="submit-event-btn">
+      <i class="ti ti-plus"></i> Submit an Event
+    </button>
   </div>
 
   <!-- ===== Events List ===== -->
@@ -332,9 +484,62 @@
 
     <div class="events-footer-note">
       <strong>Sources:</strong> Events are pulled daily from the City of Plantation, City of Pembroke Pines, and City of Weston official calendars.
-      Know of an event we're missing? <a href="mailto:dad@leavewithdad.com" style="color:var(--terra)">Send it over →</a>
+      Know of an event we're missing? <a href="#" id="footer-submit-link" style="color:var(--terra)">Submit it here →</a>
     </div>
   </main>
+
+  <!-- ===== Submit Event Modal ===== -->
+  <div class="modal-overlay" id="submit-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal">
+      <button class="modal-close" id="modal-close" aria-label="Close">&#x2715;</button>
+      <h2 id="modal-title">Submit a Community Event</h2>
+      <p class="modal-sub">Know something happening in South Florida? Share it — we'll review and add it to the calendar.</p>
+
+      <!-- Auth section -->
+      <div id="modal-auth-section">
+        <!-- Filled dynamically by JS -->
+      </div>
+
+      <!-- Form (shown when logged in) -->
+      <form id="community-event-form" style="display:none">
+        <div class="form-row">
+          <label for="ce-title">Event Name *</label>
+          <input type="text" id="ce-title" required maxlength="120" placeholder="e.g. Farmers Market at Plantation Central Park" />
+        </div>
+        <div class="form-row two-col">
+          <div class="form-row" style="margin-bottom:0">
+            <label for="ce-date">Date *</label>
+            <input type="date" id="ce-date" required />
+          </div>
+          <div class="form-row" style="margin-bottom:0">
+            <label for="ce-time">Time</label>
+            <input type="text" id="ce-time" placeholder="e.g. 10:00 AM – 2:00 PM" maxlength="40" />
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="ce-city">City *</label>
+          <select id="ce-city" required>
+            <option value="">— select city —</option>
+            <option value="Plantation">Plantation</option>
+            <option value="Pembroke Pines">Pembroke Pines</option>
+            <option value="Weston">Weston</option>
+            <option value="Fort Lauderdale">Fort Lauderdale</option>
+            <option value="Broward">Broward County</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="ce-desc">Description <span style="font-weight:400;text-transform:none">(optional)</span></label>
+          <textarea id="ce-desc" maxlength="400" placeholder="A short description of the event…"></textarea>
+        </div>
+        <div class="form-row">
+          <label for="ce-link">Event Link <span style="font-weight:400;text-transform:none">(optional)</span></label>
+          <input type="url" id="ce-link" placeholder="https://…" />
+        </div>
+        <button type="submit" class="form-submit" id="ce-submit">Submit for Review</button>
+        <p class="form-msg" id="ce-msg"></p>
+      </form>
+    </div>
+  </div>
 
   <!-- ===== Footer ===== -->
   <footer>
@@ -354,12 +559,20 @@
   (function () {
     'use strict';
 
-    const DOW = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-    const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    // ── Supabase ──────────────────────────────────────────────────
+    const SUPA_URL  = 'https://soarurpqwyqxejvkuumi.supabase.co';
+    const SUPA_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNvYXJ1cnBxd3lxeGVqdmt1dW1pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEwMjI5NzUsImV4cCI6MjA5NjU5ODk3NX0.D2xSyarj32HFOLjT8hWbQm0QGFQSOk8-Jo7oGHi4Cog';
+    const sb = window.supabase.createClient(SUPA_URL, SUPA_ANON);
+
+    const DOW        = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    const MONTHS     = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     const MONTH_FULL = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
-    let allEvents = [];
-    let activeCity = 'all';
+    let scrapedEvents   = [];
+    let communityEvents = [];
+    let allEvents       = [];
+    let activeCity      = 'all';
+    let currentUser     = null;
 
     // ── City tag helper ───────────────────────────────────────────
     function cityClass(city) {
@@ -373,18 +586,26 @@
       return map[city] || 'city-plantation';
     }
 
+    function escHtml(s) {
+      return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
     // ── Render one event card ─────────────────────────────────────
     function renderCard(ev) {
-      const d = new Date(ev.date + 'T00:00:00');
+      const d     = new Date(ev.date + 'T00:00:00');
       const month = MONTHS[d.getMonth()];
       const day   = d.getDate();
       const dow   = DOW[d.getDay()];
+      const isCommunity = !!ev._community;
 
-      const card = document.createElement('a');
+      const tag  = ev.source_url ? 'a' : 'div';
+      const card = document.createElement(tag);
       card.className = 'event-card';
-      card.href = ev.source_url;
-      card.target = '_blank';
-      card.rel = 'noopener noreferrer';
+      if (ev.source_url) {
+        card.href   = ev.source_url;
+        card.target = '_blank';
+        card.rel    = 'noopener noreferrer';
+      }
       card.setAttribute('data-city', ev.city);
 
       card.innerHTML = `
@@ -395,13 +616,16 @@
         </div>
         <div class="event-body">
           <div class="event-meta">
-            <span class="event-city-tag ${cityClass(ev.city)}">${ev.city}</span>
-            ${ev.time ? `<span class="event-time"><i class="ti ti-clock"></i>${ev.time}</span>` : ''}
+            <span class="event-city-tag ${cityClass(ev.city)}">${escHtml(ev.city)}</span>
+            ${isCommunity ? '<span class="event-city-tag city-community">★ Community</span>' : ''}
+            ${ev.time ? `<span class="event-time"><i class="ti ti-clock"></i>${escHtml(ev.time)}</span>` : ''}
           </div>
-          <div class="event-title">${ev.title}</div>
-          <div class="event-source">${ev.source_name}</div>
+          <div class="event-title">${escHtml(ev.title)}</div>
+          <div class="event-source">${escHtml(ev.source_name || (isCommunity ? 'Community Submission' : ''))}
+            ${ev.description ? `<span style="display:block;margin-top:2px;color:#555;font-size:.8rem">${escHtml(ev.description)}</span>` : ''}
+          </div>
         </div>
-        <span class="event-arrow">View →</span>
+        ${ev.source_url ? '<span class="event-arrow">View →</span>' : ''}
       `;
       return card;
     }
@@ -411,7 +635,7 @@
       const groups = {};
       for (const ev of events) {
         const d = new Date(ev.date + 'T00:00:00');
-        const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+        const key   = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;
         const label = `${MONTH_FULL[d.getMonth()]} ${d.getFullYear()}`;
         if (!groups[key]) groups[key] = { label, events: [] };
         groups[key].events.push(ev);
@@ -423,9 +647,8 @@
     function render() {
       const list = document.getElementById('events-list');
       list.innerHTML = '';
-
       const today = new Date();
-      today.setHours(0, 0, 0, 0);
+      today.setHours(0,0,0,0);
 
       const filtered = allEvents.filter(ev => {
         const d = new Date(ev.date + 'T00:00:00');
@@ -434,30 +657,30 @@
         return true;
       });
 
-      if (filtered.length === 0) {
+      if (!filtered.length) {
         list.innerHTML = `
           <div class="events-empty">
             <i class="ti ti-calendar-off"></i>
-            <p>No upcoming events found${activeCity !== 'all' ? ' for ' + activeCity : ''}.<br>
-               Check back after the next scrape.</p>
+            <p>No upcoming events found${activeCity !== 'all' ? ' for ' + activeCity : ''}.<br>Check back soon.</p>
           </div>`;
         return;
       }
 
       const groups = groupByMonth(filtered);
-      const sortedKeys = Object.keys(groups).sort();
-
-      for (const key of sortedKeys) {
+      for (const key of Object.keys(groups).sort()) {
         const { label, events } = groups[key];
-        const heading = document.createElement('div');
-        heading.className = 'events-section-label';
-        heading.textContent = label;
-        list.appendChild(heading);
-
-        for (const ev of events) {
-          list.appendChild(renderCard(ev));
-        }
+        const h = document.createElement('div');
+        h.className = 'events-section-label';
+        h.textContent = label;
+        list.appendChild(h);
+        for (const ev of events) list.appendChild(renderCard(ev));
       }
+    }
+
+    function mergeAndRender() {
+      allEvents = [...scrapedEvents, ...communityEvents]
+        .sort((a, b) => a.date.localeCompare(b.date));
+      render();
     }
 
     // ── Filter buttons ────────────────────────────────────────────
@@ -470,31 +693,158 @@
       });
     });
 
-    // ── Load events.json ──────────────────────────────────────────
+    // ── Load scraped events.json ──────────────────────────────────
     fetch('/events.json')
-      .then(r => {
-        if (!r.ok) throw new Error('events.json not found');
-        return r.json();
-      })
+      .then(r => { if (!r.ok) throw new Error(); return r.json(); })
       .then(data => {
-        allEvents = (data.events || []).sort((a, b) => a.date.localeCompare(b.date));
-
+        scrapedEvents = (data.events || []).sort((a,b) => a.date.localeCompare(b.date));
         if (data.scraped_at) {
-          const d = new Date(data.scraped_at);
           const el = document.getElementById('events-updated');
-          if (el) el.textContent = `Updated ${d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`;
+          if (el) {
+            const d = new Date(data.scraped_at);
+            el.textContent = `Updated ${d.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}`;
+          }
         }
-
-        render();
+        mergeAndRender();
       })
-      .catch(err => {
+      .catch(() => {
         document.getElementById('events-list').innerHTML = `
-          <div class="events-empty">
-            <i class="ti ti-alert-circle"></i>
-            <p>Couldn't load events. Run the scraper to generate events.json.</p>
-          </div>`;
-        console.error(err);
+          <div class="events-empty"><i class="ti ti-alert-circle"></i><p>Couldn't load events.</p></div>`;
       });
+
+    // ── Load approved community events from Supabase ──────────────
+    async function loadCommunityEvents() {
+      const { data } = await sb
+        .from('community_events')
+        .select('id,title,date,time,city,description,link,submitter_name')
+        .eq('status', 'approved')
+        .order('date', { ascending: true });
+
+      communityEvents = (data || []).map(e => ({
+        id:          e.id,
+        title:       e.title,
+        date:        e.date,
+        date_fmt:    e.date,
+        time:        e.time || '',
+        city:        e.city,
+        source_name: e.submitter_name ? `Submitted by ${e.submitter_name}` : 'Community',
+        source_url:  e.link || '',
+        description: e.description || '',
+        _community:  true,
+      }));
+      mergeAndRender();
+    }
+    loadCommunityEvents();
+
+    // ── Modal logic ───────────────────────────────────────────────
+    const modal       = document.getElementById('submit-modal');
+    const modalClose  = document.getElementById('modal-close');
+    const authSection = document.getElementById('modal-auth-section');
+    const form        = document.getElementById('community-event-form');
+
+    function openModal() {
+      modal.classList.add('open');
+      renderModalAuth();
+    }
+    function closeModal() {
+      modal.classList.remove('open');
+      document.getElementById('ce-msg').textContent = '';
+      document.getElementById('ce-msg').className = 'form-msg';
+    }
+
+    document.getElementById('submit-event-btn').addEventListener('click', openModal);
+    document.getElementById('footer-submit-link').addEventListener('click', e => { e.preventDefault(); openModal(); });
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+
+    function renderModalAuth() {
+      if (currentUser) {
+        const meta = currentUser.user_metadata || {};
+        const name = meta.full_name || meta.name || currentUser.email || 'You';
+        authSection.innerHTML = `
+          <div class="modal-user-row">
+            <i class="ti ti-user-check" style="color:var(--green)"></i>
+            Signed in as <strong>${escHtml(name)}</strong>
+            <button class="modal-signout" id="modal-signout-btn">Sign out</button>
+          </div>`;
+        authSection.querySelector('#modal-signout-btn').addEventListener('click', async () => {
+          await sb.auth.signOut();
+          currentUser = null;
+          renderModalAuth();
+        });
+        form.style.display = 'block';
+      } else {
+        authSection.innerHTML = `
+          <div class="modal-auth">
+            <p>Sign in to submit an event for review.</p>
+            <button class="oauth-btn" id="modal-google">
+              <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+              Continue with Google
+            </button>
+            <button class="oauth-btn" id="modal-facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.269h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+              Continue with Facebook
+            </button>
+          </div>`;
+        form.style.display = 'none';
+        authSection.querySelector('#modal-google').addEventListener('click', () => {
+          sb.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: window.location.href } });
+        });
+        authSection.querySelector('#modal-facebook').addEventListener('click', () => {
+          sb.auth.signInWithOAuth({ provider: 'facebook', options: { redirectTo: window.location.href } });
+        });
+      }
+    }
+
+    // ── Auth state ────────────────────────────────────────────────
+    sb.auth.getSession().then(({ data }) => {
+      currentUser = data?.session?.user || null;
+    });
+    sb.auth.onAuthStateChange((_event, session) => {
+      currentUser = session?.user || null;
+      if (modal.classList.contains('open')) renderModalAuth();
+    });
+
+    // ── Form submission ───────────────────────────────────────────
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      if (!currentUser) return;
+
+      const btn = document.getElementById('ce-submit');
+      const msg = document.getElementById('ce-msg');
+      btn.disabled = true;
+      btn.textContent = 'Submitting…';
+      msg.textContent = '';
+
+      const meta = currentUser.user_metadata || {};
+      const name = meta.full_name || meta.name || currentUser.email || '';
+
+      const { error } = await sb.from('community_events').insert({
+        title:           document.getElementById('ce-title').value.trim(),
+        date:            document.getElementById('ce-date').value,
+        time:            document.getElementById('ce-time').value.trim(),
+        city:            document.getElementById('ce-city').value,
+        description:     document.getElementById('ce-desc').value.trim(),
+        link:            document.getElementById('ce-link').value.trim(),
+        submitter_id:    currentUser.id,
+        submitter_name:  name,
+        submitter_email: currentUser.email,
+        status:          'pending',
+      });
+
+      btn.disabled = false;
+      btn.textContent = 'Submit for Review';
+
+      if (error) {
+        msg.textContent = 'Something went wrong. Please try again.';
+        msg.className = 'form-msg err';
+      } else {
+        msg.textContent = '✓ Submitted! We\'ll review it and add it to the calendar soon.';
+        msg.className = 'form-msg ok';
+        form.reset();
+        setTimeout(closeModal, 3000);
+      }
+    });
 
   })();
   </script>
