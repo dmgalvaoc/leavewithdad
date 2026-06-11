@@ -355,6 +355,45 @@ def scrape_weston() -> list[dict]:
     return events
 
 
+# ── Recurring event expander ─────────────────────────────────────────────────
+
+def expand_weekly(events, title_match, weekday):
+    """
+    Given a list of events, find the first matching title and use it as a
+    template to fill in every occurrence of `weekday` (0=Mon…6=Sun) within
+    the scrape window. Existing dates are kept; only missing ones are added.
+    """
+    template = next((e for e in events if e["title"] == title_match), None)
+    if not template:
+        return events
+
+    existing_dates = {e["date"] for e in events if e["title"] == title_match}
+
+    # Find next occurrence of the target weekday on or after TODAY
+    days_ahead = (weekday - TODAY.weekday()) % 7
+    first_wed = TODAY + timedelta(days=days_ahead)
+
+    new_events = []
+    d = first_wed
+    while is_upcoming(d):
+        ds = str(d)
+        if ds not in existing_dates:
+            new_events.append({
+                "id":          make_id(template["city"].lower(), title_match, ds),
+                "title":       template["title"],
+                "date":        ds,
+                "date_fmt":    fmt_date(d),
+                "time":        template["time"],
+                "city":        template["city"],
+                "source_name": template["source_name"],
+                "source_url":  template["source_url"],
+            })
+        d += timedelta(weeks=1)
+
+    print(f"  → Added {len(new_events)} recurring '{title_match}' entries")
+    return events + new_events
+
+
 # ── Main ─────────────────────────────────────────────────────────────────────
 
 def main():
@@ -371,6 +410,10 @@ def main():
 
     print("\nScraping Weston...")
     all_events.extend(scrape_weston())
+
+    # Expand recurring weekly events that the city calendar may not have
+    # fully published yet. Uses any existing scraped entry as a template.
+    all_events = expand_weekly(all_events, "Wednesday Food Trucks", weekday=2)  # 2 = Wednesday
 
     # Sort by date
     all_events.sort(key=lambda e: e["date"])
