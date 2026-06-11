@@ -10,7 +10,7 @@
 
 | # | Title | Slug | Status | Published |
 |---|-------|------|--------|-----------|
-| 14 | Pergola Permit Nightmare | `pergola-permit-plantation` | idea | — |
+| 14 | Pergola Permit Nightmare | `pergola-permit-plantation` | draft | — |
 | 15 | Water Bills in Plantation | `water-bills-plantation` | **published** | 2026-06-10 |
 | 16 | City of Plantation Quick Reference | `city-of-plantation-quick-reference` | **published** | 2026-06-10 |
 | 17 | Plantation Events Feed (Auto) | `plantation-events-feed` | idea | — |
