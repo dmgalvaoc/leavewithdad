@@ -1,0 +1,396 @@
+{
+  "scraped_at": "2026-06-11T03:03:03.422537Z",
+  "event_count": 39,
+  "events": [
+    {
+      "id": "31cfd40401f4",
+      "title": "Mayor's Kids Day",
+      "date": "2026-06-12",
+      "date_fmt": "6/12/2026",
+      "time": "",
+      "city": "Pembroke Pines",
+      "source_name": "City of Pembroke Pines",
+      "source_url": "https://www.ppines.com/Calendar.aspx?EID=8161&month=6&year=2026&day=5&calType=0"
+    },
+    {
+      "id": "3d127cdad15b",
+      "title": "SteadyLiving@Home with BSO Fire Rescue, Weston",
+      "date": "2026-06-12",
+      "date_fmt": "6/12/2026",
+      "time": "10:00 AM",
+      "city": "Weston",
+      "source_name": "City of Weston",
+      "source_url": "https://www.westonfl.org/Home/Components/Calendar/Event/4015/20?curm=6&cury=2026"
+    },
+    {
+      "id": "f283f6176971",
+      "title": "Yoga In The Park",
+      "date": "2026-06-13",
+      "date_fmt": "6/13/2026",
+      "time": "9:00 AM – 10:00 AM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6579/276"
+    },
+    {
+      "id": "224d82c7823a",
+      "title": "Juneteenth Celebration",
+      "date": "2026-06-19",
+      "date_fmt": "6/19/2026",
+      "time": "",
+      "city": "Pembroke Pines",
+      "source_name": "City of Pembroke Pines",
+      "source_url": "https://www.ppines.com/Calendar.aspx?EID=8227&month=6&year=2026&day=5&calType=0"
+    },
+    {
+      "id": "33756b2784b6",
+      "title": "Yoga In The Park",
+      "date": "2026-06-20",
+      "date_fmt": "6/20/2026",
+      "time": "9:00 AM – 10:00 AM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6605/276"
+    },
+    {
+      "id": "5d6f1f881b43",
+      "title": "Sound Bath Healing",
+      "date": "2026-06-21",
+      "date_fmt": "6/21/2026",
+      "time": "9:00 AM – 10:00 AM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6372/276"
+    },
+    {
+      "id": "b206af2936d9",
+      "title": "Yoga In The Park",
+      "date": "2026-06-27",
+      "date_fmt": "6/27/2026",
+      "time": "9:00 AM – 10:00 AM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6606/276"
+    },
+    {
+      "id": "4cee9e7c23a4",
+      "title": "Caribbean American Heritage Festival",
+      "date": "2026-06-27",
+      "date_fmt": "6/27/2026",
+      "time": "",
+      "city": "Pembroke Pines",
+      "source_name": "City of Pembroke Pines",
+      "source_url": "https://www.ppines.com/Calendar.aspx?EID=8163&month=6&year=2026&day=5&calType=0"
+    },
+    {
+      "id": "afa28a5c13eb",
+      "title": "Independence Day Observance",
+      "date": "2026-07-03",
+      "date_fmt": "7/3/2026",
+      "time": "",
+      "city": "Weston",
+      "source_name": "City of Weston",
+      "source_url": "https://www.westonfl.org/Home/Components/Calendar/Event/4025/20?curm=7&cury=2026"
+    },
+    {
+      "id": "8aace7ffbdd2",
+      "title": "Hometown Fireworks Celebration",
+      "date": "2026-07-03",
+      "date_fmt": "7/3/2026",
+      "time": "6:00 PM",
+      "city": "Weston",
+      "source_name": "City of Weston",
+      "source_url": "https://www.westonfl.org/Home/Components/Calendar/Event/3700/20?curm=7&cury=2026"
+    },
+    {
+      "id": "8116782269c4",
+      "title": "Independence Day Celebration",
+      "date": "2026-07-04",
+      "date_fmt": "7/4/2026",
+      "time": "",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6456/276"
+    },
+    {
+      "id": "b3524935936f",
+      "title": "Yoga In The Park",
+      "date": "2026-07-04",
+      "date_fmt": "7/4/2026",
+      "time": "9:00 AM – 10:00 AM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6607/276"
+    },
+    {
+      "id": "9c3aa1e12da0",
+      "title": "Independence Day Celebration",
+      "date": "2026-07-04",
+      "date_fmt": "7/4/2026",
+      "time": "",
+      "city": "Pembroke Pines",
+      "source_name": "City of Pembroke Pines",
+      "source_url": "https://www.ppines.com/Calendar.aspx?EID=8228&month=7&year=2026&day=1&calType=0"
+    },
+    {
+      "id": "ed355c0ab3f7",
+      "title": "Independence Day",
+      "date": "2026-07-04",
+      "date_fmt": "7/4/2026",
+      "time": "",
+      "city": "Weston",
+      "source_name": "City of Weston",
+      "source_url": "https://www.westonfl.org/Home/Components/Calendar/Event/3878/20?curm=7&cury=2026"
+    },
+    {
+      "id": "38751ff11c72",
+      "title": "Fourth of July 5K Run/Walk",
+      "date": "2026-07-04",
+      "date_fmt": "7/4/2026",
+      "time": "7:00 AM",
+      "city": "Weston",
+      "source_name": "City of Weston",
+      "source_url": "https://www.westonfl.org/Home/Components/Calendar/Event/3902/20?curm=7&cury=2026"
+    },
+    {
+      "id": "86d0e89007a8",
+      "title": "Fourth of July Parade",
+      "date": "2026-07-04",
+      "date_fmt": "7/4/2026",
+      "time": "10:30 AM",
+      "city": "Weston",
+      "source_name": "City of Weston",
+      "source_url": "https://www.westonfl.org/Home/Components/Calendar/Event/3900/20?curm=7&cury=2026"
+    },
+    {
+      "id": "3bf292ead9af",
+      "title": "Daddy/Daughter Dance",
+      "date": "2026-07-10",
+      "date_fmt": "7/10/2026",
+      "time": "7:00 PM – 9:30 PM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6458/276"
+    },
+    {
+      "id": "e05dc69d121d",
+      "title": "Mayor's PlayBall",
+      "date": "2026-07-10",
+      "date_fmt": "7/10/2026",
+      "time": "",
+      "city": "Pembroke Pines",
+      "source_name": "City of Pembroke Pines",
+      "source_url": "https://www.ppines.com/Calendar.aspx?EID=8226&month=7&year=2026&day=4&calType=0"
+    },
+    {
+      "id": "4bbef59287a6",
+      "title": "SteadyLiving@Home with BSO Fire Rescue, Weston",
+      "date": "2026-07-10",
+      "date_fmt": "7/10/2026",
+      "time": "10:00 AM",
+      "city": "Weston",
+      "source_name": "City of Weston",
+      "source_url": "https://www.westonfl.org/Home/Components/Calendar/Event/4014/20?curm=7&cury=2026"
+    },
+    {
+      "id": "000c8824d288",
+      "title": "Yoga In The Park",
+      "date": "2026-07-11",
+      "date_fmt": "7/11/2026",
+      "time": "9:00 AM – 10:00 AM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6608/276"
+    },
+    {
+      "id": "73cb4c1ef778",
+      "title": "Yoga In The Park",
+      "date": "2026-07-18",
+      "date_fmt": "7/18/2026",
+      "time": "9:00 AM – 10:00 AM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6609/276"
+    },
+    {
+      "id": "c606bc7b4882",
+      "title": "Back to School BBQ",
+      "date": "2026-07-18",
+      "date_fmt": "7/18/2026",
+      "time": "10:00 AM – 1:00 PM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6462/276"
+    },
+    {
+      "id": "092b5d96ae7d",
+      "title": "Dive-In Movie",
+      "date": "2026-07-18",
+      "date_fmt": "7/18/2026",
+      "time": "",
+      "city": "Pembroke Pines",
+      "source_name": "City of Pembroke Pines",
+      "source_url": "https://www.ppines.com/Calendar.aspx?EID=8248&month=7&year=2026&day=4&calType=0"
+    },
+    {
+      "id": "3bf34130a3ff",
+      "title": "Sound Bath Healing",
+      "date": "2026-07-19",
+      "date_fmt": "7/19/2026",
+      "time": "9:00 AM – 10:00 AM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6373/276"
+    },
+    {
+      "id": "6e77a4b47233",
+      "title": "Yoga In The Park",
+      "date": "2026-07-25",
+      "date_fmt": "7/25/2026",
+      "time": "9:00 AM – 10:00 AM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6610/276"
+    },
+    {
+      "id": "9ec3f9508269",
+      "title": "Yoga In The Park",
+      "date": "2026-08-01",
+      "date_fmt": "8/1/2026",
+      "time": "9:00 AM – 10:00 AM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6611/276"
+    },
+    {
+      "id": "615fe74a4e62",
+      "title": "Mother/Son Party",
+      "date": "2026-08-07",
+      "date_fmt": "8/7/2026",
+      "time": "7:00 PM – 9:00 PM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6460/276"
+    },
+    {
+      "id": "feda8b9d4429",
+      "title": "Yoga In The Park",
+      "date": "2026-08-08",
+      "date_fmt": "8/8/2026",
+      "time": "9:00 AM – 10:00 AM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6612/276"
+    },
+    {
+      "id": "ab4d2773df07",
+      "title": "Splash in the Pines",
+      "date": "2026-08-08",
+      "date_fmt": "8/8/2026",
+      "time": "",
+      "city": "Pembroke Pines",
+      "source_name": "City of Pembroke Pines",
+      "source_url": "https://www.ppines.com/Calendar.aspx?EID=8249&month=8&year=2026&day=4&calType=0"
+    },
+    {
+      "id": "e7948e36c7de",
+      "title": "Yoga In The Park",
+      "date": "2026-08-15",
+      "date_fmt": "8/15/2026",
+      "time": "9:00 AM – 10:00 AM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6613/276"
+    },
+    {
+      "id": "4813a48c9c6e",
+      "title": "Sound Bath Healing",
+      "date": "2026-08-16",
+      "date_fmt": "8/16/2026",
+      "time": "9:00 AM – 10:00 AM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6374/276"
+    },
+    {
+      "id": "b3b81c331d4d",
+      "title": "Yoga In The Park",
+      "date": "2026-08-22",
+      "date_fmt": "8/22/2026",
+      "time": "9:00 AM – 10:00 AM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6614/276"
+    },
+    {
+      "id": "5a607c00469d",
+      "title": "Yoga In The Park",
+      "date": "2026-08-29",
+      "date_fmt": "8/29/2026",
+      "time": "9:00 AM – 10:00 AM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6615/276"
+    },
+    {
+      "id": "30205cd30421",
+      "title": "Volunteer Orientation",
+      "date": "2026-09-19",
+      "date_fmt": "9/19/2026",
+      "time": "9:00 AM – 10:00 AM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6464/276"
+    },
+    {
+      "id": "82c89e002d47",
+      "title": "Sound Bath Healing",
+      "date": "2026-09-20",
+      "date_fmt": "9/20/2026",
+      "time": "9:00 AM – 10:00 AM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6375/276"
+    },
+    {
+      "id": "3da4d2e1fe18",
+      "title": "Wednesday Food Trucks",
+      "date": "2026-09-23",
+      "date_fmt": "9/23/2026",
+      "time": "5:00 PM – 9:00 PM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6548/276"
+    },
+    {
+      "id": "e10e7512e2be",
+      "title": "BioBlitz",
+      "date": "2026-09-26",
+      "date_fmt": "9/26/2026",
+      "time": "",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6466/276"
+    },
+    {
+      "id": "2d901878b679",
+      "title": "Wednesday Food Trucks",
+      "date": "2026-09-30",
+      "date_fmt": "9/30/2026",
+      "time": "5:00 PM – 9:00 PM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6575/276"
+    },
+    {
+      "id": "62dcaa39ab9d",
+      "title": "Wednesday Food Trucks",
+      "date": "2026-10-07",
+      "date_fmt": "10/7/2026",
+      "time": "5:00 PM – 9:00 PM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6576/276"
+    }
+  ]
+}
