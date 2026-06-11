@@ -12,6 +12,7 @@ import json
 import base64
 import datetime
 import tempfile
+import urllib.request
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
@@ -147,8 +148,65 @@ def get_adsense_stats(creds):
 
     return {"earnings": 0.0, "impressions": 0, "rpm": 0.0, "ad_clicks": 0}
 
+# ── AI Review ────────────────────────────────────────────────────────────────
+def get_ai_review(ga4, sc, adsense):
+    api_key = os.environ.get("ANTHROPIC_API_KEY", "")
+    if not api_key:
+        return "<p><em>AI review unavailable — ANTHROPIC_API_KEY not set.</em></p>"
+
+    top_pages_text = "\n".join([f"  {p}: {v} views" for p, v in ga4["top_pages"]])
+    prompt = f"""You are reviewing yesterday's performance for leavewithdad.com, a content site about parental leave, dad life, and local Plantation FL topics that monetizes via Google AdSense.
+
+Here are yesterday's stats:
+
+TRAFFIC (GA4):
+- Sessions: {ga4['sessions']}
+- Pageviews: {ga4['pageviews']}
+- Top pages:
+{top_pages_text}
+
+SEARCH CONSOLE (data from {sc['date']}, ~2-3 day lag):
+- Clicks: {sc['clicks']}
+- Impressions: {sc['impressions']}
+- CTR: {sc['ctr']}%
+- Avg. Position: {sc['position']}
+
+ADSENSE:
+- Estimated Earnings: ${adsense['earnings']:.2f}
+- Impressions: {adsense['impressions']}
+- RPM: ${adsense['rpm']:.2f}
+- Ad Clicks: {adsense['ad_clicks']}
+
+Write a short, sharp morning briefing (3-5 sentences). Cover: what stands out in the numbers, which article is driving traffic and why that matters, any concern worth watching (CTR, position, RPM), and one concrete action to consider today. Be direct, no fluff."""
+
+    payload = json.dumps({
+        "model": "claude-haiku-4-5-20251001",
+        "max_tokens": 300,
+        "messages": [{"role": "user", "content": prompt}]
+    }).encode("utf-8")
+
+    req = urllib.request.Request(
+        "https://api.anthropic.com/v1/messages",
+        data=payload,
+        headers={
+            "x-api-key": api_key,
+            "anthropic-version": "2023-06-01",
+            "content-type": "application/json",
+        },
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            result = json.loads(resp.read().decode("utf-8"))
+            text = result["content"][0]["text"].strip()
+            # Convert newlines to <br> for HTML
+            text_html = text.replace("\n\n", "</p><p>").replace("\n", "<br>")
+            return f"<p>{text_html}</p>"
+    except Exception as e:
+        return f"<p><em>AI review error: {e}</em></p>"
+
 # ── Email ─────────────────────────────────────────────────────────────────────
-def build_email(ga4, sc, adsense):
+def build_email(ga4, sc, adsense, ai_review):
     date_label = datetime.date.today().strftime("%B %d, %Y")
 
     top_pages_rows = "".join([
@@ -204,6 +262,11 @@ def build_email(ga4, sc, adsense):
             <td style="padding:4px 8px;text-align:right"><b>{adsense['ad_clicks']:,}</b></td></tr>
       </table>
 
+      <h3 style="color:#e63946;margin-top:24px">🤖 AI Review</h3>
+      <div style="background:#f9f9f9;border-left:3px solid #e63946;padding:12px 16px;font-size:14px;line-height:1.6;color:#333">
+        {ai_review}
+      </div>
+
       <p style="color:#aaa;font-size:11px;margin-top:32px;border-top:1px solid #eee;padding-top:8px">
         leavewithdad.com · automated morning digest
       </p>
@@ -234,7 +297,10 @@ def main():
     print(f"SC      — clicks: {sc['clicks']}, impressions: {sc['impressions']}")
     print(f"AdSense — earnings: ${adsense['earnings']:.2f}, RPM: ${adsense['rpm']:.2f}")
 
-    html = build_email(ga4, sc, adsense)
+    print("Generating AI review...")
+    ai_review = get_ai_review(ga4, sc, adsense)
+
+    html = build_email(ga4, sc, adsense, ai_review)
     send_email(creds, html)
 
 if __name__ == "__main__":
