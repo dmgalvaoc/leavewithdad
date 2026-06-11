@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-06-11T03:03:03.422537Z",
-  "event_count": 39,
+  "scraped_at": "2026-06-11T04:20:20.544172Z",
+  "event_count": 53,
   "events": [
     {
       "id": "31cfd40401f4",
@@ -33,6 +33,16 @@
       "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6579/276"
     },
     {
+      "id": "918bb2bfcb40",
+      "title": "Wednesday Food Trucks",
+      "date": "2026-06-17",
+      "date_fmt": "6/17/2026",
+      "time": "5:00 PM – 9:00 PM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6548/276"
+    },
+    {
       "id": "224d82c7823a",
       "title": "Juneteenth Celebration",
       "date": "2026-06-19",
@@ -63,6 +73,16 @@
       "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6372/276"
     },
     {
+      "id": "285b93c97209",
+      "title": "Wednesday Food Trucks",
+      "date": "2026-06-24",
+      "date_fmt": "6/24/2026",
+      "time": "5:00 PM – 9:00 PM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6548/276"
+    },
+    {
       "id": "b206af2936d9",
       "title": "Yoga In The Park",
       "date": "2026-06-27",
@@ -81,6 +101,16 @@
       "city": "Pembroke Pines",
       "source_name": "City of Pembroke Pines",
       "source_url": "https://www.ppines.com/Calendar.aspx?EID=8163&month=6&year=2026&day=5&calType=0"
+    },
+    {
+      "id": "1a03bbcd7b94",
+      "title": "Wednesday Food Trucks",
+      "date": "2026-07-01",
+      "date_fmt": "7/1/2026",
+      "time": "5:00 PM – 9:00 PM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6548/276"
     },
     {
       "id": "afa28a5c13eb",
@@ -163,6 +193,16 @@
       "source_url": "https://www.westonfl.org/Home/Components/Calendar/Event/3900/20?curm=7&cury=2026"
     },
     {
+      "id": "6bb88644121e",
+      "title": "Wednesday Food Trucks",
+      "date": "2026-07-08",
+      "date_fmt": "7/8/2026",
+      "time": "5:00 PM – 9:00 PM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6548/276"
+    },
+    {
       "id": "3bf292ead9af",
       "title": "Daddy/Daughter Dance",
       "date": "2026-07-10",
@@ -201,6 +241,16 @@
       "city": "Plantation",
       "source_name": "City of Plantation",
       "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6608/276"
+    },
+    {
+      "id": "aa7632bd0b8c",
+      "title": "Wednesday Food Trucks",
+      "date": "2026-07-15",
+      "date_fmt": "7/15/2026",
+      "time": "5:00 PM – 9:00 PM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6548/276"
     },
     {
       "id": "73cb4c1ef778",
@@ -243,6 +293,16 @@
       "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6373/276"
     },
     {
+      "id": "02db83821f16",
+      "title": "Wednesday Food Trucks",
+      "date": "2026-07-22",
+      "date_fmt": "7/22/2026",
+      "time": "5:00 PM – 9:00 PM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6548/276"
+    },
+    {
       "id": "6e77a4b47233",
       "title": "Yoga In The Park",
       "date": "2026-07-25",
@@ -253,6 +313,16 @@
       "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6610/276"
     },
     {
+      "id": "0f3591e83fd3",
+      "title": "Wednesday Food Trucks",
+      "date": "2026-07-29",
+      "date_fmt": "7/29/2026",
+      "time": "5:00 PM – 9:00 PM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6548/276"
+    },
+    {
       "id": "9ec3f9508269",
       "title": "Yoga In The Park",
       "date": "2026-08-01",
@@ -261,6 +331,16 @@
       "city": "Plantation",
       "source_name": "City of Plantation",
       "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6611/276"
+    },
+    {
+      "id": "804f1e8e308a",
+      "title": "Wednesday Food Trucks",
+      "date": "2026-08-05",
+      "date_fmt": "8/5/2026",
+      "time": "5:00 PM – 9:00 PM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6548/276"
     },
     {
       "id": "615fe74a4e62",
@@ -293,6 +373,16 @@
       "source_url": "https://www.ppines.com/Calendar.aspx?EID=8249&month=8&year=2026&day=4&calType=0"
     },
     {
+      "id": "ff993928bc85",
+      "title": "Wednesday Food Trucks",
+      "date": "2026-08-12",
+      "date_fmt": "8/12/2026",
+      "time": "5:00 PM – 9:00 PM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6548/276"
+    },
+    {
       "id": "e7948e36c7de",
       "title": "Yoga In The Park",
       "date": "2026-08-15",
@@ -313,6 +403,16 @@
       "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6374/276"
     },
     {
+      "id": "a8802cc65b5b",
+      "title": "Wednesday Food Trucks",
+      "date": "2026-08-19",
+      "date_fmt": "8/19/2026",
+      "time": "5:00 PM – 9:00 PM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6548/276"
+    },
+    {
       "id": "b3b81c331d4d",
       "title": "Yoga In The Park",
       "date": "2026-08-22",
@@ -323,6 +423,16 @@
       "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6614/276"
     },
     {
+      "id": "0e7b87bb5d0c",
+      "title": "Wednesday Food Trucks",
+      "date": "2026-08-26",
+      "date_fmt": "8/26/2026",
+      "time": "5:00 PM – 9:00 PM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6548/276"
+    },
+    {
       "id": "5a607c00469d",
       "title": "Yoga In The Park",
       "date": "2026-08-29",
@@ -331,6 +441,36 @@
       "city": "Plantation",
       "source_name": "City of Plantation",
       "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6615/276"
+    },
+    {
+      "id": "622c8bb8af5a",
+      "title": "Wednesday Food Trucks",
+      "date": "2026-09-02",
+      "date_fmt": "9/2/2026",
+      "time": "5:00 PM – 9:00 PM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6548/276"
+    },
+    {
+      "id": "386961217845",
+      "title": "Wednesday Food Trucks",
+      "date": "2026-09-09",
+      "date_fmt": "9/9/2026",
+      "time": "5:00 PM – 9:00 PM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6548/276"
+    },
+    {
+      "id": "4b4bab616b21",
+      "title": "Wednesday Food Trucks",
+      "date": "2026-09-16",
+      "date_fmt": "9/16/2026",
+      "time": "5:00 PM – 9:00 PM",
+      "city": "Plantation",
+      "source_name": "City of Plantation",
+      "source_url": "https://www.plantation.org/Home/Components/Calendar/Event/6548/276"
     },
     {
       "id": "30205cd30421",
