@@ -2,12 +2,14 @@ name: Morning Stats Digest
 
 on:
   schedule:
-    - cron: '0 10 * * *'   # 6:00 AM EDT (UTC-4) — adjust to '0 11 * * *' in winter (EST)
+    - cron: '0 6 * * *'    # 2:00 AM EDT (UTC-4) — adjust to '0 7 * * *' in winter (EST)
   workflow_dispatch:         # allows manual trigger from GitHub Actions tab
 
 jobs:
   send-digest:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout repo
@@ -27,3 +29,11 @@ jobs:
           GOOGLE_CLIENT_SECRET_JSON: ${{ secrets.GOOGLE_CLIENT_SECRET_JSON }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python scripts/morning_digest.py
+
+      - name: Commit performance log
+        run: |
+          git config user.name "leavewithdad-bot"
+          git config user.email "dad@leavewithdad.com"
+          git add insights/performance-log.md
+          git diff --staged --quiet || git commit -m "chore: performance log $(date +%Y-%m-%d)"
+          git push
