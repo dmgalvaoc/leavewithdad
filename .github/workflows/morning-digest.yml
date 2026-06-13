@@ -5,6 +5,9 @@ on:
     - cron: '0 6 * * *'    # 2:00 AM EDT (UTC-4) — adjust to '0 7 * * *' in winter (EST)
   workflow_dispatch:         # allows manual trigger from GitHub Actions tab
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   send-digest:
     runs-on: ubuntu-latest
@@ -31,9 +34,12 @@ jobs:
         run: python scripts/morning_digest.py
 
       - name: Commit performance log
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "leavewithdad-bot"
           git config user.email "dad@leavewithdad.com"
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
           git add insights/performance-log.md
           git diff --staged --quiet || git commit -m "chore: performance log $(date +%Y-%m-%d)"
           git push
