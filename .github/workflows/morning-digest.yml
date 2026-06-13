@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.REPO_PAT }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -35,11 +37,12 @@ jobs:
 
       - name: Commit performance log
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO_PAT: ${{ secrets.REPO_PAT }}
         run: |
           git config user.name "leavewithdad-bot"
           git config user.email "dad@leavewithdad.com"
-          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
-          git add insights/performance-log.md
+          git remote set-url origin https://x-access-token:${REPO_PAT}@github.com/${{ github.repository }}.git
+          mkdir -p insights
+          git add insights/performance-log.md || echo "No performance log to commit"
           git diff --staged --quiet || git commit -m "chore: performance log $(date +%Y-%m-%d)"
           git push
