@@ -83,17 +83,6 @@
     </div>
   </header>
 
-  <!-- ===== Nav ===== -->
-  <nav class="nav" aria-label="Main navigation">
-    <ul>
-      <li><a href="#plantation" class="active"><i class="ti ti-building-community"></i> Plantation</a></li>
-      <li><a href="#home"><i class="ti ti-home-2"></i> Home</a></li>
-      <li><a href="#yard"><i class="ti ti-leaf"></i> Yard &amp; Garden</a></li>
-      <li><a href="/events/"><i class="ti ti-calendar-event"></i> Events</a></li>
-      <li><a href="#recommends"><i class="ti ti-star"></i> Dad Recommends</a></li>
-    </ul>
-  </nav>
-
   <!-- ===== Hero ===== -->
   <section class="hero" aria-labelledby="hero-heading">
     <!-- Hero image -->
@@ -113,6 +102,25 @@
       <a href="#plantation" class="btn-cta">Start reading →</a>
     </div>
   </section>
+
+  <!-- ===== Page Body (sidebar + content) ===== -->
+  <div class="page-body">
+
+    <aside class="sidebar">
+      <div class="sidebar-label">Browse</div>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#plantation" class="active"><i class="ti ti-building-community"></i> Plantation</a></li>
+          <li><a href="#home"><i class="ti ti-home-2"></i> Home</a></li>
+          <li><a href="#yard"><i class="ti ti-leaf"></i> Yard &amp; Garden</a></li>
+          <li><a href="/events/"><i class="ti ti-calendar-event"></i> Events</a></li>
+          <li><a href="#recommends"><i class="ti ti-star"></i> Dad Recommends</a></li>
+        </ul>
+      </nav>
+      <hr class="sidebar-divider" />
+    </aside>
+
+    <div class="page-content">
 
   <!-- ===== Dad Intro ===== -->
   <section class="dad-intro" id="about-dad" aria-label="Welcome from Dad">
@@ -266,6 +274,9 @@
 
   </main>
 
+    </div><!-- /page-content -->
+  </div><!-- /page-body -->
+
   <!-- ===== Dad Note Strip ===== -->
   <section class="dad-strip" aria-label="A note from Dad">
     <div class="dad-strip-inner">
@@ -313,7 +324,7 @@
       recommends: 'Dad Recommends',
     };
 
-    const navLinks  = document.querySelectorAll('.nav a');
+    const navLinks  = document.querySelectorAll('.sidebar a');
     const cards     = document.querySelectorAll('#cards-grid .card');
     const heading   = document.getElementById('tab-heading');
     const emptyMsg  = document.getElementById('tab-empty');
@@ -321,7 +332,7 @@
 
     function filterTab(tab) {
       navLinks.forEach(l => l.classList.remove('active'));
-      const active = document.querySelector(`.nav a[href="#${tab}"], .nav a[href="/#${tab}"]`);
+      const active = document.querySelector(`.sidebar a[href="#${tab}"], .sidebar a[href="/#${tab}"]`);
       if (active) active.classList.add('active');
 
       if (heading) heading.innerHTML = TAB_LABELS[tab] || 'Latest from the Guide';
