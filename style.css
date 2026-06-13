@@ -97,7 +97,6 @@ a:hover { text-decoration: underline; }
 .page-body {
   display: flex;
   align-items: flex-start;
-  margin-top: -80px;
   position: relative;
   background: var(--green);
 }
@@ -106,7 +105,7 @@ a:hover { text-decoration: underline; }
   width: var(--sidebar-w);
   min-width: var(--sidebar-w);
   background: var(--green);
-  padding-top: 80px;
+  padding-top: 24px;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -167,7 +166,6 @@ a:hover { text-decoration: underline; }
 .page-content {
   flex: 1;
   min-width: 0;
-  padding-top: 80px;
   background: var(--parchment);
   border-top-left-radius: 32px;
   position: relative;
@@ -587,7 +585,7 @@ footer {
 
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
-  .page-body { flex-direction: column; margin-top: 0; }
+  .page-body { flex-direction: column; }
   .sidebar {
     width: 100%; min-width: unset; height: auto; position: static;
     border-bottom: 3px solid var(--terra);
@@ -598,7 +596,7 @@ footer {
   .sidebar nav ul li a.active { border-left-color: transparent; border-bottom-color: var(--terra); }
   .sidebar-label { display: none; }
   .sidebar-divider { display: none; }
-  .page-content { padding-top: 0; border-top-left-radius: 0; }
+  .page-content { border-top-left-radius: 0; }
 }
 
 @media (max-width: 768px) {
