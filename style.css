@@ -99,6 +99,7 @@ a:hover { text-decoration: underline; }
   align-items: flex-start;
   margin-top: -80px;
   position: relative;
+  background: var(--green);
 }
 
 .sidebar {
@@ -106,10 +107,12 @@ a:hover { text-decoration: underline; }
   min-width: var(--sidebar-w);
   background: var(--green);
   padding-top: 80px;
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   height: 100vh;
   overflow-y: auto;
+  align-self: flex-start;
 }
 
 .sidebar-label {
@@ -176,7 +179,6 @@ a:hover { text-decoration: underline; }
   background: var(--green);
   padding: 80px 24px 100px;
   position: relative;
-  overflow: hidden;
 }
 
 .hero-img-wrap {
