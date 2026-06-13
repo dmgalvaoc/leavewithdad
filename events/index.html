@@ -49,6 +49,8 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/style.css?v=3" />
+  <link rel="stylesheet" href="/article.css?v=1" />
   <link rel="stylesheet" href="/share/share.css" />
 
   <!-- Google AdSense -->
@@ -60,362 +62,6 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
-  <style>
-    /* ── Events-specific styles ── */
-
-    .events-hero {
-      background: var(--green);
-      padding: 48px 24px 40px;
-      text-align: center;
-    }
-    .events-hero h1 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 900;
-      color: var(--parchment);
-      margin-bottom: 10px;
-    }
-    .events-hero h1 em { color: var(--terra); font-style: italic; }
-    .events-hero p {
-      color: #b8cec3;
-      font-size: 1rem;
-      max-width: 520px;
-      margin: 0 auto;
-    }
-
-    .events-toolbar {
-      background: #fff;
-      border-bottom: 1px solid var(--card-border);
-      padding: 14px 24px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      position: sticky;
-      top: 0;
-      z-index: 50;
-    }
-    .events-toolbar .filter-label {
-      font-size: 0.78rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .05em;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-    .filter-btn {
-      background: none;
-      border: 1.5px solid var(--card-border);
-      border-radius: 20px;
-      padding: 5px 14px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: #555;
-      cursor: pointer;
-      transition: all .15s;
-      white-space: nowrap;
-    }
-    .filter-btn:hover  { border-color: var(--terra); color: var(--terra); }
-    .filter-btn.active { background: var(--green); border-color: var(--green); color: #fff; }
-
-    .events-main {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 32px 24px 60px;
-    }
-
-    .events-section-label {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.2rem;
-      color: var(--green);
-      font-weight: 700;
-      margin: 32px 0 12px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid var(--card-border);
-    }
-    .events-section-label:first-child { margin-top: 0; }
-
-    .event-card {
-      display: flex;
-      gap: 16px;
-      background: #fff;
-      border: 1px solid var(--card-border);
-      border-radius: 10px;
-      padding: 16px 20px;
-      margin-bottom: 12px;
-      text-decoration: none;
-      color: inherit;
-      transition: box-shadow .15s, transform .15s;
-    }
-    .event-card:hover {
-      box-shadow: 0 4px 16px rgba(0,0,0,.08);
-      transform: translateY(-1px);
-    }
-
-    .event-date-badge {
-      flex-shrink: 0;
-      width: 56px;
-      text-align: center;
-      background: var(--green);
-      border-radius: 8px;
-      padding: 8px 4px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    .event-date-badge .ev-month {
-      font-size: 0.65rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      color: var(--muted);
-    }
-    .event-date-badge .ev-day {
-      font-size: 1.5rem;
-      font-weight: 900;
-      color: var(--parchment);
-      line-height: 1;
-    }
-    .event-date-badge .ev-dow {
-      font-size: 0.6rem;
-      color: #8aaa97;
-      text-transform: uppercase;
-      letter-spacing: .04em;
-      margin-top: 2px;
-    }
-
-    .event-body { flex: 1; min-width: 0; }
-    .event-meta {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 4px;
-      flex-wrap: wrap;
-    }
-    .event-city-tag {
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      padding: 2px 8px;
-      border-radius: 10px;
-      white-space: nowrap;
-    }
-    .city-plantation     { background: #e8f4ee; color: var(--green); }
-    .city-pembroke-pines { background: #fef3ec; color: var(--terra); }
-    .city-weston         { background: #eef0ff; color: #3a50c8; }
-    .city-fort-lauderdale { background: #fff8e0; color: #8a6200; }
-    .city-broward        { background: #f3e8f8; color: #6a2d8a; }
-
-    .event-time {
-      font-size: 0.72rem;
-      color: var(--muted);
-      display: flex;
-      align-items: center;
-      gap: 3px;
-    }
-    .event-title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #1a2a22;
-      margin-bottom: 4px;
-      line-height: 1.3;
-    }
-    .event-source {
-      font-size: 0.72rem;
-      color: var(--muted);
-    }
-    .event-arrow {
-      flex-shrink: 0;
-      align-self: center;
-      color: var(--terra);
-      font-size: 0.85rem;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-
-    .events-empty {
-      text-align: center;
-      padding: 60px 0;
-      color: var(--muted);
-    }
-    .events-empty .ti { font-size: 2.5rem; display: block; margin-bottom: 12px; }
-
-    .events-footer-note {
-      margin-top: 40px;
-      padding: 16px 20px;
-      background: #f5f0e8;
-      border-left: 3px solid var(--terra);
-      border-radius: 0 8px 8px 0;
-      font-size: 0.82rem;
-      color: #666;
-      line-height: 1.6;
-    }
-    .events-footer-note strong { color: var(--green); }
-
-    .events-updated {
-      font-size: 0.75rem;
-      color: var(--muted);
-      text-align: right;
-      margin-bottom: 8px;
-    }
-
-    /* ── Community badge ── */
-    .city-community { background: #f0ebff; color: #5b2d8a; }
-    .community-star { font-size: 0.68rem; color: #5b2d8a; font-weight: 700; }
-
-    /* ── Submit event button ── */
-    .submit-event-btn {
-      margin-left: auto;
-      background: var(--terra);
-      color: #fff;
-      border: none;
-      border-radius: 20px;
-      padding: 6px 16px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      white-space: nowrap;
-      transition: background .15s;
-    }
-    .submit-event-btn:hover { background: #a8501f; }
-
-    /* ── Modal ── */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.45);
-      z-index: 200;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-    .modal-overlay.open { display: flex; }
-    .modal {
-      background: #fff;
-      border-radius: 12px;
-      width: 100%;
-      max-width: 520px;
-      max-height: 90vh;
-      overflow-y: auto;
-      padding: 28px 28px 24px;
-      position: relative;
-    }
-    .modal-close {
-      position: absolute;
-      top: 14px; right: 16px;
-      background: none; border: none;
-      font-size: 1.3rem; cursor: pointer;
-      color: var(--muted);
-    }
-    .modal-close:hover { color: #333; }
-    .modal h2 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--green);
-      margin-bottom: 4px;
-    }
-    .modal-sub {
-      font-size: 0.82rem;
-      color: var(--muted);
-      margin-bottom: 20px;
-    }
-
-    /* Auth prompt inside modal */
-    .modal-auth {
-      text-align: center;
-      padding: 12px 0 8px;
-    }
-    .modal-auth p { font-size: 0.9rem; color: #444; margin-bottom: 16px; }
-    .oauth-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1.5px solid #ddd;
-      border-radius: 8px;
-      padding: 9px 18px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 500;
-      cursor: pointer;
-      background: #fff;
-      margin: 4px;
-      transition: border-color .15s, box-shadow .15s;
-    }
-    .oauth-btn:hover { border-color: var(--green); box-shadow: 0 2px 8px rgba(0,0,0,.08); }
-    .modal-user-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: #f5f0e8;
-      border-radius: 8px;
-      padding: 10px 14px;
-      margin-bottom: 18px;
-      font-size: 0.83rem;
-    }
-    .modal-user-row strong { color: var(--green); }
-    .modal-signout { margin-left: auto; background: none; border: none; color: var(--muted); font-size: 0.78rem; cursor: pointer; text-decoration: underline; }
-
-    /* Form fields */
-    .form-row { margin-bottom: 14px; }
-    .form-row label { display: block; font-size: 0.78rem; font-weight: 600; color: #444; margin-bottom: 4px; text-transform: uppercase; letter-spacing: .04em; }
-    .form-row input,
-    .form-row select,
-    .form-row textarea {
-      width: 100%;
-      border: 1.5px solid #ddd;
-      border-radius: 7px;
-      padding: 9px 11px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.88rem;
-      color: #222;
-      box-sizing: border-box;
-      transition: border-color .15s;
-    }
-    .form-row input:focus,
-    .form-row select:focus,
-    .form-row textarea:focus { outline: none; border-color: var(--green); }
-    .form-row textarea { resize: vertical; min-height: 72px; }
-    .form-row.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-    .form-submit {
-      width: 100%;
-      background: var(--green);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      padding: 11px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 600;
-      cursor: pointer;
-      margin-top: 6px;
-      transition: background .15s;
-    }
-    .form-submit:hover:not(:disabled) { background: #1e2e27; }
-    .form-submit:disabled { opacity: .6; cursor: default; }
-    .form-msg { font-size: 0.82rem; margin-top: 10px; text-align: center; min-height: 18px; }
-    .form-msg.ok  { color: #2a7a3b; }
-    .form-msg.err { color: #c0392b; }
-
-    @media (max-width: 600px) {
-      .events-toolbar { padding: 10px 16px; gap: 7px; }
-      .events-main    { padding: 20px 16px 40px; }
-      .event-card     { padding: 12px 14px; gap: 12px; }
-      .event-arrow    { display: none; }
-      .form-row.two-col { grid-template-columns: 1fr; }
-      .modal { padding: 20px 18px 18px; }
-    }
-  </style>
 </head>
 <body>
 
@@ -431,16 +77,24 @@
     </div>
   </header>
 
-  <!-- ===== Nav ===== -->
-  <nav class="nav" aria-label="Main navigation">
-    <ul>
-      <li><a href="/#plantation"><i class="ti ti-building-community"></i> Plantation</a></li>
-      <li><a href="/#home"><i class="ti ti-home-2"></i> Home</a></li>
-      <li><a href="/#yard"><i class="ti ti-leaf"></i> Yard &amp; Garden</a></li>
-      <li><a href="/events/" class="active"><i class="ti ti-calendar-event"></i> Events</a></li>
-      <li><a href="/#recommends"><i class="ti ti-star"></i> Dad Recommends</a></li>
-    </ul>
-  </nav>
+  <!-- ===== Page Body (sidebar + content) ===== -->
+  <div class="page-body">
+
+    <aside class="sidebar">
+      <div class="sidebar-label">Browse</div>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="/#plantation"><i class="ti ti-building-community"></i> Plantation</a></li>
+          <li><a href="/#home"><i class="ti ti-home-2"></i> Home</a></li>
+          <li><a href="/#yard"><i class="ti ti-leaf"></i> Yard &amp; Garden</a></li>
+          <li><a href="/events/" class="active"><i class="ti ti-calendar-event"></i> Events</a></li>
+          <li><a href="/#recommends"><i class="ti ti-star"></i> Dad Recommends</a></li>
+        </ul>
+      </nav>
+      <hr class="sidebar-divider" />
+    </aside>
+
+    <div class="page-content">
 
   <!-- ===== Hero ===== -->
   <section class="events-hero">
@@ -564,6 +218,9 @@
       </form>
     </div>
   </div>
+
+    </div><!-- /page-content -->
+  </div><!-- /page-body -->
 
   <!-- ===== Footer ===== -->
   <footer>
