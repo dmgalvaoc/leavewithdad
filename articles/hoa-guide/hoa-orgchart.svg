@@ -1,0 +1,84 @@
+<svg viewBox="0 0 800 370" xmlns="http://www.w3.org/2000/svg" role="img" style="font-family:'Inter',sans-serif; background:#FFFAF7; border-radius:14px;">
+  <title>HOA Org Chart</title>
+  <desc>HOA at top, connected by lines to five homeowner houses below</desc>
+
+  <defs>
+    <filter id="sh" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#00000018"/>
+    </filter>
+  </defs>
+
+  <!-- HOA BOX -->
+  <rect x="250" y="24" width="300" height="88" rx="14" fill="#C0392B" filter="url(#sh)"/>
+  <rect x="385" y="40" width="30" height="26" rx="2" fill="none" stroke="#fff" stroke-width="2"/>
+  <rect x="391" y="46" width="6" height="6" fill="#fff" opacity=".8"/>
+  <rect x="403" y="46" width="6" height="6" fill="#fff" opacity=".8"/>
+  <rect x="391" y="56" width="6" height="5" fill="#fff" opacity=".8"/>
+  <rect x="403" y="56" width="6" height="5" fill="#fff" opacity=".8"/>
+  <rect x="393" y="61" width="14" height="5" fill="#fff" opacity=".5"/>
+  <line x1="400" y1="40" x2="400" y2="33" stroke="#fff" stroke-width="1.5"/>
+  <polygon points="400,33 407,36 400,39" fill="#fff" opacity=".9"/>
+  <text x="400" y="85" text-anchor="middle" fill="#fff" font-size="20" font-weight="700" letter-spacing="1" font-family="Inter,sans-serif">HOA</text>
+  <text x="400" y="103" text-anchor="middle" fill="#FFDBD8" font-size="12" font-family="Inter,sans-serif">Homeowners Association</text>
+
+  <!-- STEM LINE -->
+  <line x1="400" y1="112" x2="400" y2="168" stroke="#C0392B" stroke-width="2.5"/>
+
+  <!-- HORIZONTAL RAIL -->
+  <line x1="80" y1="168" x2="720" y2="168" stroke="#C0392B" stroke-width="2.5"/>
+
+  <!-- DROP LINES -->
+  <line x1="80"  y1="168" x2="80"  y2="208" stroke="#C0392B" stroke-width="2"/>
+  <line x1="240" y1="168" x2="240" y2="208" stroke="#C0392B" stroke-width="2"/>
+  <line x1="400" y1="168" x2="400" y2="208" stroke="#C0392B" stroke-width="2"/>
+  <line x1="560" y1="168" x2="560" y2="208" stroke="#C0392B" stroke-width="2"/>
+  <line x1="720" y1="168" x2="720" y2="208" stroke="#C0392B" stroke-width="2"/>
+
+  <!-- HOUSE 1 -->
+  <g transform="translate(80,208)">
+    <polygon points="0,-18 -46,20 46,20" fill="#C0392B"/>
+    <rect x="-38" y="20" width="76" height="54" rx="2" fill="#F5E6D3" stroke="#D4813A" stroke-width="1.5"/>
+    <rect x="-13" y="42" width="26" height="32" rx="3" fill="#C0392B" opacity=".6"/>
+    <circle cx="11" cy="58" r="2.5" fill="#fff" opacity=".7"/>
+  </g>
+  <text x="80"  y="300" text-anchor="middle" fill="#4A3728" font-size="11" font-weight="600" font-family="Inter,sans-serif">Homeowner</text>
+
+  <!-- HOUSE 2 -->
+  <g transform="translate(240,208)">
+    <polygon points="0,-18 -46,20 46,20" fill="#C0392B"/>
+    <rect x="-38" y="20" width="76" height="54" rx="2" fill="#F5E6D3" stroke="#D4813A" stroke-width="1.5"/>
+    <rect x="-13" y="42" width="26" height="32" rx="3" fill="#C0392B" opacity=".6"/>
+    <circle cx="11" cy="58" r="2.5" fill="#fff" opacity=".7"/>
+  </g>
+  <text x="240" y="300" text-anchor="middle" fill="#4A3728" font-size="11" font-weight="600" font-family="Inter,sans-serif">Homeowner</text>
+
+  <!-- HOUSE 3 (center) -->
+  <g transform="translate(400,208)">
+    <polygon points="0,-18 -46,20 46,20" fill="#C0392B"/>
+    <rect x="-38" y="20" width="76" height="54" rx="2" fill="#FDECEA" stroke="#C0392B" stroke-width="2"/>
+    <rect x="-13" y="42" width="26" height="32" rx="3" fill="#C0392B" opacity=".7"/>
+    <circle cx="11" cy="58" r="2.5" fill="#fff" opacity=".8"/>
+  </g>
+  <text x="400" y="300" text-anchor="middle" fill="#4A3728" font-size="11" font-weight="600" font-family="Inter,sans-serif">Homeowner</text>
+
+  <!-- HOUSE 4 -->
+  <g transform="translate(560,208)">
+    <polygon points="0,-18 -46,20 46,20" fill="#C0392B"/>
+    <rect x="-38" y="20" width="76" height="54" rx="2" fill="#F5E6D3" stroke="#D4813A" stroke-width="1.5"/>
+    <rect x="-13" y="42" width="26" height="32" rx="3" fill="#C0392B" opacity=".6"/>
+    <circle cx="11" cy="58" r="2.5" fill="#fff" opacity=".7"/>
+  </g>
+  <text x="560" y="300" text-anchor="middle" fill="#4A3728" font-size="11" font-weight="600" font-family="Inter,sans-serif">Homeowner</text>
+
+  <!-- HOUSE 5 -->
+  <g transform="translate(720,208)">
+    <polygon points="0,-18 -46,20 46,20" fill="#C0392B"/>
+    <rect x="-38" y="20" width="76" height="54" rx="2" fill="#F5E6D3" stroke="#D4813A" stroke-width="1.5"/>
+    <rect x="-13" y="42" width="26" height="32" rx="3" fill="#C0392B" opacity=".6"/>
+    <circle cx="11" cy="58" r="2.5" fill="#fff" opacity=".7"/>
+  </g>
+  <text x="720" y="300" text-anchor="middle" fill="#4A3728" font-size="11" font-weight="600" font-family="Inter,sans-serif">Homeowner</text>
+
+  <!-- CAPTION -->
+  <text x="400" y="340" text-anchor="middle" fill="#9B7B6E" font-size="10.5" font-style="italic" font-family="Inter,sans-serif">South Florida has 60,000+ HOAs — one board, many households</text>
+</svg>

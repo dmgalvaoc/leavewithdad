@@ -48,20 +48,24 @@
   }
   </script>
 
-  <!-- Fonts -->
+  <!-- Hero image preload (LCP) — responsive srcset so mobile gets 39KB not 278KB -->
+  <link rel="preload" as="image"
+    imagesrcset="hero-800.webp 800w, hero-1400.webp 1400w, hero.webp 2816w"
+    imagesizes="100vw"
+    href="hero.webp" type="image/webp" fetchpriority="high" />
+
+  <!-- Fonts — async to avoid render-blocking -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" /></noscript>
 
-  <!-- Tabler Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <!-- Tabler Icons removed — replaced with inline SVGs below -->
 
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="/share/share.css" />
-
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8668596875719653"
-     crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css?v=4" />
+  <!-- share.css async — only needed for share bar below the fold -->
+  <link rel="preload" as="style" href="/share/share.css" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/share/share.css" /></noscript>
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -76,30 +80,21 @@
     <a href="/" class="logo">leave with <span>dad</span></a>
     <div class="topbar-right">
       <div class="search-box">
-        <i class="ti ti-search"></i>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
         <input type="search" placeholder="Search the guide…" aria-label="Search" />
       </div>
       <button class="btn-subscribe">Subscribe</button>
     </div>
   </header>
 
-  <!-- ===== Nav ===== -->
-  <nav class="nav" aria-label="Main navigation">
-    <ul>
-      <li><a href="#plantation" class="active"><i class="ti ti-building-community"></i> Plantation</a></li>
-      <li><a href="#home"><i class="ti ti-home-2"></i> Home</a></li>
-      <li><a href="#yard"><i class="ti ti-leaf"></i> Yard &amp; Garden</a></li>
-      <li><a href="/events/"><i class="ti ti-calendar-event"></i> Events</a></li>
-      <li><a href="#recommends"><i class="ti ti-star"></i> Dad Recommends</a></li>
-    </ul>
-  </nav>
-
   <!-- ===== Hero ===== -->
   <section class="hero" aria-labelledby="hero-heading">
     <!-- Hero image -->
     <picture class="hero-img-wrap">
-      <source srcset="hero.webp" type="image/webp" />
-      <img class="hero-img" src="hero.png" alt="Plantation neighborhood" />
+      <source type="image/webp"
+        srcset="hero-800.webp 800w, hero-1400.webp 1400w, hero.webp 2816w"
+        sizes="100vw" />
+      <img class="hero-img" src="hero.png" alt="Plantation neighborhood" width="2816" height="1536" fetchpriority="high" />
     </picture>
     <div class="hero-inner">
       <div class="hero-badge">
@@ -113,6 +108,25 @@
       <a href="#plantation" class="btn-cta">Start reading →</a>
     </div>
   </section>
+
+  <!-- ===== Page Body (sidebar + content) ===== -->
+  <div class="page-body">
+
+    <aside class="sidebar">
+      <div class="sidebar-label">Browse</div>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#plantation" class="active"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 9l5 5v7h-5v-4m0 4h-5v-7l5 -5m1 1v-6a1 1 0 0 1 1 -1h10a1 1 0 0 1 1 1v17h-8"/><path d="M13 7l0 .01"/><path d="M17 7l0 .01"/><path d="M17 11l0 .01"/><path d="M17 15l0 .01"/></svg> Plantation</a></li>
+          <li><a href="#home"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l-2 0l9 -9l9 9l-2 0"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/><path d="M10 12h4v4h-4z"/></svg> Home</a></li>
+          <li><a href="#yard"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 21c.5 -4.5 2.5 -8 7 -10"/><path d="M9 18c6.218 0 10.5 -3.288 11 -12v-2h-4.014c-9 0 -11.986 4 -12 9c0 1 0 3 2 5h3z"/></svg> Yard &amp; Garden</a></li>
+          <li><a href="/events/"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 5m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"/><path d="M16 3l0 4"/><path d="M8 3l0 4"/><path d="M4 11l16 0"/><path d="M8 15h2v2h-2z"/></svg> Events</a></li>
+          <li><a href="#recommends"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"/></svg> Dad Recommends</a></li>
+        </ul>
+      </nav>
+      <hr class="sidebar-divider" />
+    </aside>
+
+    <div class="page-content">
 
   <!-- ===== Dad Intro ===== -->
   <section class="dad-intro" id="about-dad" aria-label="Welcome from Dad">
@@ -142,6 +156,81 @@
 
     <div class="cards-grid" id="cards-grid">
 
+      <!-- Card: Whynter BR-130SB Beer Fridge Review -->
+      <article class="card" data-tags="recommends home">
+        <div class="card-accent terra"></div>
+        <div class="card-body">
+          <p class="card-category">Dad Recommends · Home &amp; Garage · Honest Review</p>
+          <h3>Whynter BR-130SB Review: The Beer Fridge Every South Florida Dad Deserves</h3>
+          <p class="card-kicker">I bought this fridge in April 2022 — back then I had a 1-year-old, a very strong opinion about cold beer and a wife with a stronger opinion than me about it. Four years later, the fridge is still here, still running, but now I have a 5-year-old, a pregnant wife, way too little free time... and even less time for beers — that explains the empty shelves.</p>
+          <p>Full specs, honest pros and cons, and the one temperature setting mistake that will cause ice problems inside the unit.</p>
+        </div>
+        <div class="card-footer">
+          <span class="card-date">June 2026</span>
+          <a href="/articles/beer-fridge/" class="card-read">Read →</a>
+        </div>
+      </article>
+
+      <!-- Card: Freebee Plantation Electric Rideshare -->
+      <article class="card" data-tags="plantation">
+        <div class="card-accent terra"></div>
+        <div class="card-body">
+          <p class="card-category">Plantation · Transportation · Local Services</p>
+          <h3>Free Rides in Plantation, FL — How the Freebee Electric Shuttle Actually Works</h3>
+          <p class="card-kicker">I spotted a small electric car near The Fountains with "Freebee" on the door. Turns out Plantation has a free, on-demand electric rideshare in the Midtown District and most residents have no idea it exists.</p>
+          <p>Service area, hours, how to book via app or phone, and an honest take on when it's actually useful versus when you're better off with Uber.</p>
+        </div>
+        <div class="card-footer">
+          <span class="card-date">June 2026</span>
+          <a href="/articles/freebee-plantation-electric-rideshare/" class="card-read">Read →</a>
+        </div>
+      </article>
+
+      <!-- Card: Plantation Schools Guide -->
+      <article class="card" data-tags="plantation">
+        <div class="card-accent terra"></div>
+        <div class="card-body">
+          <p class="card-category">Plantation · Schools · New Resident</p>
+          <h3>Plantation, FL Schools Guide — What Every New Resident Needs to Know</h3>
+          <p class="card-kicker">Which school will your kid actually attend in Plantation, FL? A practical breakdown of every public, charter, and private school option — with the address lookup tool most parents don't know about.</p>
+          <p>Covers the north/south boundary split, charter school lotteries, private school options, and the School Choice program that lets you request a better-fit school than your default assignment.</p>
+        </div>
+        <div class="card-footer">
+          <span class="card-date">June 2026</span>
+          <a href="/articles/plantation-schools-guide/" class="card-read">Read →</a>
+        </div>
+      </article>
+
+      <!-- Card: HOA Guide -->
+      <article class="card" data-tags="plantation home">
+        <div class="card-accent terra"></div>
+        <div class="card-body">
+          <p class="card-category">Plantation · HOA · South Florida</p>
+          <h3>Can Your HOA Do That? A South Florida Dad's Guide — From the Inside</h3>
+          <p class="card-kicker">I waited days for my HOA to approve my purchase after the bank already said yes. Then I joined the board. Here's what the HOA can — and can't — actually do to you.</p>
+          <p>Based on Florida Statute Chapter 720 and personal experience: purchase rejections, rental bans, roof fines, selective enforcement, and what HB 1203 changed in 2024.</p>
+        </div>
+        <div class="card-footer">
+          <span class="card-date">June 2026</span>
+          <a href="/articles/hoa-guide/" class="card-read">Read →</a>
+        </div>
+      </article>
+
+      <!-- Card: Plantation Historical Museum -->
+      <article class="card" data-tags="plantation">
+        <div class="card-accent terra"></div>
+        <div class="card-body">
+          <p class="card-category">Plantation · Local History · Free Admission</p>
+          <h3>Plantation Historical Museum: Free Local History Guide</h3>
+          <p class="card-kicker">Every time I drive past Fig Tree Lane, I miss the actual history of how this place got built. The museum tells that story—for free, with surprising detail.</p>
+          <p>Location, hours, exhibits on Native Americans and Plantation's founding through the 1960s boom, and why understanding your city's roots changes how you see the street grid today.</p>
+        </div>
+        <div class="card-footer">
+          <span class="card-date">June 2026</span>
+          <a href="/articles/plantation-historical-museum/" class="card-read">Read →</a>
+        </div>
+      </article>
+
       <!-- Card 1 -->
       <article class="card" data-tags="plantation home recommends">
         <div class="card-accent green"></div>
@@ -153,7 +242,7 @@
         </div>
         <div class="card-footer">
           <span class="card-date">June 2025</span>
-          <a href="/hvac-leak-detector-plantation/" class="card-read">Read →</a>
+          <a href="/articles/hvac-leak-detector-plantation/" class="card-read">Read →</a>
         </div>
       </article>
 
@@ -168,7 +257,7 @@
         </div>
         <div class="card-footer">
           <span class="card-date">June 2026</span>
-          <a href="/non-emergency-police-plantation/" class="card-read">Read →</a>
+          <a href="/articles/non-emergency-police-plantation/" class="card-read">Read →</a>
         </div>
       </article>
 
@@ -183,7 +272,37 @@
         </div>
         <div class="card-footer">
           <span class="card-date">May 23, 2026</span>
-          <a href="/plantation-alarm-permit/" class="card-read">Read →</a>
+          <a href="/articles/plantation-alarm-permit/" class="card-read">Read →</a>
+        </div>
+      </article>
+
+      <!-- Card: I Poured My First Concrete Slab in One Saturday -->
+      <article class="card" data-tags="plantation home">
+        <div class="card-accent green"></div>
+        <div class="card-body">
+          <p class="card-category">Home · DIY · First Timer</p>
+          <h3>I Poured My First Concrete Slab in One Saturday — Here's Exactly What Happened</h3>
+          <p class="card-kicker">My shed had just been delivered — boxes in the driveway, ready to assemble. Only one thing missing: I needed a solid concrete slab to put it over and anchor it.</p>
+          <p>A first-timer's honest account of pouring a 7×3.5 ft concrete slab: the tools that actually mattered, the mistakes almost made, and what nobody tells you about mixing bags one at a time.</p>
+        </div>
+        <div class="card-footer">
+          <span class="card-date">June 2026</span>
+          <a href="/articles/diy-slab/" class="card-read">Read →</a>
+        </div>
+      </article>
+
+      <!-- Card: ThermoMaven G1 Review -->
+      <article class="card" data-tags="recommends home">
+        <div class="card-accent green"></div>
+        <div class="card-body">
+          <p class="card-category">Dad Recommends · BBQ &amp; Grilling · Product Review</p>
+          <h3>ThermoMaven G1 Review: A BBQ Dad's Honest Take After 20 Years at the Grill</h3>
+          <p class="card-kicker">I've been the designated grill guy at practically every group BBQ for two decades. Old school, no gadgets, all feel. Then someone handed me a wireless meat thermometer and told me to try it.</p>
+          <p>A 20-year grilling veteran's honest review of the ThermoMaven G1 wireless meat thermometer — plus the internal temps you actually need, and why your friends will mock you right up until they taste the food.</p>
+        </div>
+        <div class="card-footer">
+          <span class="card-date">June 2026</span>
+          <a href="/articles/thermostat/" class="card-read">Read →</a>
         </div>
       </article>
 
@@ -198,7 +317,7 @@
         </div>
         <div class="card-footer">
           <span class="card-date">June 2026</span>
-          <a href="/city-of-plantation-quick-reference/" class="card-read">Read →</a>
+          <a href="/articles/city-of-plantation-quick-reference/" class="card-read">Read →</a>
         </div>
       </article>
 
@@ -213,7 +332,7 @@
         </div>
         <div class="card-footer">
           <span class="card-date">March 2022</span>
-          <a href="/water-bills-plantation/" class="card-read">Read →</a>
+          <a href="/articles/water-bills-plantation/" class="card-read">Read →</a>
         </div>
       </article>
 
@@ -228,7 +347,7 @@
         </div>
         <div class="card-footer">
           <span class="card-date">June 2026</span>
-          <a href="/st-augustine-grass-fertilizing-guide/" class="card-read">Read →</a>
+          <a href="/articles/st-augustine-grass-fertilizing-guide/" class="card-read">Read →</a>
         </div>
       </article>
 
@@ -240,16 +359,12 @@
 
     <!-- AdSense: between articles and Dad strip (in-article) -->
     <div class="ad-unit ad-unit--leaderboard">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-8668596875719653"
-           data-ad-slot="5059855175"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
   </main>
+
+    </div><!-- /page-content -->
+  </div><!-- /page-body -->
 
   <!-- ===== Dad Note Strip ===== -->
   <section class="dad-strip" aria-label="A note from Dad">
@@ -266,13 +381,6 @@
 
   <!-- AdSense: above footer (in-article) -->
   <div class="ad-unit ad-unit--footer">
-    <ins class="adsbygoogle"
-         style="display:block; text-align:center;"
-         data-ad-layout="in-article"
-         data-ad-format="fluid"
-         data-ad-client="ca-pub-8668596875719653"
-         data-ad-slot="2349931356"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
   <!-- ===== Footer ===== -->
@@ -298,7 +406,7 @@
       recommends: 'Dad Recommends',
     };
 
-    const navLinks  = document.querySelectorAll('.nav a');
+    const navLinks  = document.querySelectorAll('.sidebar a');
     const cards     = document.querySelectorAll('#cards-grid .card');
     const heading   = document.getElementById('tab-heading');
     const emptyMsg  = document.getElementById('tab-empty');
@@ -306,7 +414,7 @@
 
     function filterTab(tab) {
       navLinks.forEach(l => l.classList.remove('active'));
-      const active = document.querySelector(`.nav a[href="#${tab}"], .nav a[href="/#${tab}"]`);
+      const active = document.querySelector(`.sidebar a[href="#${tab}"], .sidebar a[href="/#${tab}"]`);
       if (active) active.classList.add('active');
 
       if (heading) heading.innerHTML = TAB_LABELS[tab] || 'Latest from the Guide';

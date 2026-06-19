@@ -49,10 +49,9 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/style.css?v=3" />
+  <link rel="stylesheet" href="/article.css?v=1" />
   <link rel="stylesheet" href="/share/share.css" />
-
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8668596875719653" crossorigin="anonymous"></script>
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -203,11 +202,11 @@
       border-radius: 10px;
       white-space: nowrap;
     }
-    .city-plantation     { background: #e8f4ee; color: var(--green); }
-    .city-pembroke-pines { background: #fef3ec; color: var(--terra); }
-    .city-weston         { background: #eef0ff; color: #3a50c8; }
+    .city-plantation      { background: #e8f4ee; color: var(--green); }
+    .city-pembroke-pines  { background: #fef3ec; color: var(--terra); }
+    .city-weston          { background: #eef0ff; color: #3a50c8; }
     .city-fort-lauderdale { background: #fff8e0; color: #8a6200; }
-    .city-broward        { background: #f3e8f8; color: #6a2d8a; }
+    .city-broward         { background: #f3e8f8; color: #6a2d8a; }
 
     .event-time {
       font-size: 0.72rem;
@@ -416,6 +415,7 @@
       .modal { padding: 20px 18px 18px; }
     }
   </style>
+
 </head>
 <body>
 
@@ -431,16 +431,24 @@
     </div>
   </header>
 
-  <!-- ===== Nav ===== -->
-  <nav class="nav" aria-label="Main navigation">
-    <ul>
-      <li><a href="/#plantation"><i class="ti ti-building-community"></i> Plantation</a></li>
-      <li><a href="/#home"><i class="ti ti-home-2"></i> Home</a></li>
-      <li><a href="/#yard"><i class="ti ti-leaf"></i> Yard &amp; Garden</a></li>
-      <li><a href="/events/" class="active"><i class="ti ti-calendar-event"></i> Events</a></li>
-      <li><a href="/#recommends"><i class="ti ti-star"></i> Dad Recommends</a></li>
-    </ul>
-  </nav>
+  <!-- ===== Page Body (sidebar + content) ===== -->
+  <div class="page-body">
+
+    <aside class="sidebar">
+      <div class="sidebar-label">Browse</div>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="/#plantation"><i class="ti ti-building-community"></i> Plantation</a></li>
+          <li><a href="/#home"><i class="ti ti-home-2"></i> Home</a></li>
+          <li><a href="/#yard"><i class="ti ti-leaf"></i> Yard &amp; Garden</a></li>
+          <li><a href="/events/" class="active"><i class="ti ti-calendar-event"></i> Events</a></li>
+          <li><a href="/#recommends"><i class="ti ti-star"></i> Dad Recommends</a></li>
+        </ul>
+      </nav>
+      <hr class="sidebar-divider" />
+    </aside>
+
+    <div class="page-content">
 
   <!-- ===== Hero ===== -->
   <section class="events-hero">
@@ -470,18 +478,6 @@
         <p>Loading events…</p>
       </div>
     </div>
-
-    <!-- AdSense mid-page -->
-    <div class="ad-unit" style="margin: 32px 0;">
-      <ins class="adsbygoogle"
-           style="display:block; text-align:center;"
-           data-ad-layout="in-article"
-           data-ad-format="fluid"
-           data-ad-client="ca-pub-8668596875719653"
-           data-ad-slot="2349931356"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-
     <div class="events-footer-note">
       <strong>Sources:</strong> Events are pulled daily from the City of Plantation, City of Pembroke Pines, and City of Weston official calendars.
       Know of an event we're missing? <a href="#" id="footer-submit-link" style="color:var(--terra)">Submit it here →</a>
@@ -564,6 +560,9 @@
       </form>
     </div>
   </div>
+
+    </div><!-- /page-content -->
+  </div><!-- /page-body -->
 
   <!-- ===== Footer ===== -->
   <footer>
