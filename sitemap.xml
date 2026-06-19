@@ -3,56 +3,14 @@
 
   <url>
     <loc>https://leavewithdad.com/</loc>
-    <lastmod>2026-06-13</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://leavewithdad.com/articles/city-of-plantation-quick-reference/</loc>
-    <lastmod>2026-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
     <loc>https://leavewithdad.com/events/</loc>
-    <lastmod>2026-06-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://leavewithdad.com/articles/hvac-leak-detector-plantation/</loc>
-    <lastmod>2025-06-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://leavewithdad.com/articles/non-emergency-police-plantation/</loc>
-    <lastmod>2026-06-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://leavewithdad.com/articles/plantation-alarm-permit/</loc>
-    <lastmod>2026-05-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://leavewithdad.com/articles/st-augustine-grass-fertilizing-guide/</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://leavewithdad.com/articles/water-bills-plantation/</loc>
-    <lastmod>2022-03-15</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -69,13 +27,6 @@
     <lastmod>2026-06-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
-  </url>
-
-  <url>
-    <loc>https://leavewithdad.com/articles/freebee-plantation-electric-rideshare/</loc>
-    <lastmod>2026-06-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
   </url>
 
 </urlset>
