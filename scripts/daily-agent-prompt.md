@@ -1,47 +1,28 @@
 # Daily Article Agent — Prompt
 
-This file mirrors the scheduled task prompt. Source of truth is the Cowork scheduled task "leavewithdad-daily-draft".
+**Execute immediately. Do not ask for confirmation. Start writing the article now using the assignment provided at the end of this prompt.**
 
 ---
 
-## GOOGLE DRIVE IDs
+## Article requirements
 
-- Topic Queue Sheet: `1Yftu5cFEd0BP90Ea4LiDEkSN2GUAS56mIlYbH5lMDo4`
-- Assets Folder: `1IAQ-9A4hpxgMk3C8hd_aD8gn5nlB0ukc`
-
----
-
-## Sheet columns (Topic Queue)
-
-| Column | Purpose |
-|---|---|
-| Order | Posting priority — drag rows to reorder |
-| Title | Article title |
-| Slug | URL slug |
-| Category | Plantation / Home / Yard & Garden / Dad Recommends |
-| Status | idea → draft → published |
-| Scheduled Date | Set by agent when drafted |
-| Published Date | Set when wired to index.html |
-| Notes | Any context for the agent |
-| Affiliate Link 1 | Amazon affiliate URL (optional) |
-| Affiliate Link 2 | Amazon affiliate URL (optional) |
-| Affiliate Link 3 | Amazon affiliate URL (optional) |
-
-Agent picks the lowest-Order row where Status = `idea`. After drafting, sets Status to `draft` and fills Scheduled Date.
+- **Length:** 800–1000 words
+- **Voice:** Dad's practical, slightly opinionated first-person perspective
+- **Structure:** lean scaffold — intro, 2-3 body sections, closing takeaway
+- **Product boxes:** one `.product-box` per affiliate link — pair each with its matching product image (same index) — no prices displayed
+- **Post images:** use the post image URLs provided for article body images — embed directly as `<img src="...">`, do not download
+- **Images:** use URLs exactly as provided, do not download files locally
+- **Template:** follow the structure of `articles/hvac-leak-detector-plantation/index.html`
 
 ---
 
-## Agent steps
+## Output steps
 
-1. Read Topic Queue Sheet → pick first `idea` by Order
-2. Web research (4–6 searches)
-3. Check Assets Folder for matching image
-4. Write article HTML (template: water-bills-plantation/index.html)
-   - Include one .product-box per non-empty Affiliate Link column
-   - No prices displayed
-5. Update sheet row: Status → `draft`, Scheduled Date → today
-6. Git push to main
-7. iMessage Diego: draft URL + publish instructions
+1. Write article HTML to `articles/{slug}/index.html`
+2. Git commit and push to main
+3. Call the webhook URL provided in the assignment to mark as draft in the sheet
+
+---
 
 ## Publish command (Diego says in Cowork chat)
 
