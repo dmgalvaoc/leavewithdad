@@ -1,7 +1,8 @@
 #!/bin/bash
 # leavewithdad — publish.sh
 # Usage: bash scripts/publish.sh <slug>
-# Copies a draft to live, calls the sheet webhook, commits and pushes.
+# Wires the article card to index.html, marks sheet as published, commits and pushes.
+# Article must already exist at articles/[slug]/index.html before running.
 # Run from the repo root: ~/Desktop/leavewithdad/
 
 set -e
@@ -15,75 +16,15 @@ if [ -z "$SLUG" ]; then
   exit 1
 fi
 
-DRAFT_DIR="$REPO/drafts/$SLUG"
-LIVE_DIR="$REPO/articles/$SLUG"
+ARTICLE_DIR="$REPO/articles/$SLUG"
 
-# ── 1. Verify draft exists ──────────────────────────────────────────────────
-if [ ! -f "$DRAFT_DIR/index.html" ]; then
-  echo "ERROR: $DRAFT_DIR/index.html not found"
+# ── 1. Verify article exists ────────────────────────────────────────────────
+if [ ! -f "$ARTICLE_DIR/index.html" ]; then
+  echo "ERROR: $ARTICLE_DIR/index.html not found"
   exit 1
 fi
 
-# ── 2. Download Drive images from draft HTML before copying ─────────────────
-echo "→ Downloading Drive images from draft HTML..."
-python3 - "$DRAFT_DIR" <<'PYEOF'
-import sys, re, subprocess, os, urllib.request
-
-draft_dir = sys.argv[1]
-html_file = os.path.join(draft_dir, "index.html")
-if not os.path.exists(html_file):
-    print("  No index.html found — skipping image download")
-    sys.exit(0)
-
-with open(html_file, "r") as f:
-    html = f.read()
-
-# Find all lh3.googleusercontent.com/d/{fileId} patterns
-drive_pattern = re.compile(r'https://lh3\.googleusercontent\.com/d/([\w-]+)')
-ids_seen = {}
-new_html = html
-
-for m in drive_pattern.finditer(html):
-    file_id = m.group(1)
-    if file_id in ids_seen:
-        continue
-    # Try to determine filename from existing img alt or just use fileId
-    filename = file_id + ".jpg"
-    out_path = os.path.join(draft_dir, filename)
-    # lh3.googleusercontent.com/d/{id} is the public share URL — no auth required.
-    # drive.google.com/uc?export=download returns a Google sign-in page for most files.
-    download_url = f"https://lh3.googleusercontent.com/d/{file_id}"
-    try:
-        req = urllib.request.Request(download_url, headers={"User-Agent": "Mozilla/5.0"})
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            data = resp.read()
-        # Verify it's an image, not an HTML error page
-        if data[:2] == b'\xff\xd8' or data[:4] == b'\x89PNG' or data[:4] == b'GIF8':
-            with open(out_path, "wb") as out:
-                out.write(data)
-            print(f"  Downloaded: {filename} ({len(data)//1024} KB)")
-            new_html = new_html.replace(m.group(0), filename)
-            ids_seen[file_id] = filename
-        else:
-            print(f"  WARNING: {file_id} returned non-image — keeping Drive URL")
-            ids_seen[file_id] = None
-    except Exception as e:
-        print(f"  WARNING: Could not download {file_id}: {e} — keeping Drive URL")
-        ids_seen[file_id] = None
-
-if ids_seen:
-    with open(html_file, "w") as f:
-        f.write(new_html)
-    print("  HTML updated with local image paths")
-PYEOF
-echo "  Image step done"
-
-# ── 3. Copy draft to live slug folder ───────────────────────────────────────
-echo "→ Copying draft to live..."
-cp -r "$DRAFT_DIR/." "$LIVE_DIR/"
-echo "  Done: $LIVE_DIR"
-
-# ── 3. Call sheet webhook — mark published (two-step POST+GET) ───────────────
+# ── 2. Call sheet webhook — mark published ──────────────────────────────────
 WEBHOOK_FILE="$REPO/.sheets-webhook-url"
 if [ -f "$WEBHOOK_FILE" ]; then
   WEBHOOK_URL=$(cat "$WEBHOOK_FILE")
@@ -102,22 +43,16 @@ else
   echo "  WARNING: .sheets-webhook-url not found — skipping sheet update"
 fi
 
-# ── 4. Authenticate ──────────────────────────────────────────────────────────
+# ── 3. Authenticate ──────────────────────────────────────────────────────────
 GITHUB_TOKEN=$(cat "$REPO/.github-token")
 git -C "$REPO" remote set-url origin "https://${GITHUB_TOKEN}@github.com/dmgalvaoc/leavewithdad.git"
 
-# ── 5. Git plumbing commit + push (works even with stale lock files) ──────────
+# ── 4. Commit + push ─────────────────────────────────────────────────────────
 echo "→ Committing and pushing..."
-# Clear locks if possible (works from Mac; no-op if permission denied from sandbox)
-rm -f "$REPO/.git/HEAD.lock" "$REPO/.git/index.lock" "$REPO/.git/refs/remotes/origin/main.lock" 2>/dev/null || true
-
-# Always use remote HEAD as parent — local HEAD may lag behind
-REMOTE_HEAD=$(git -C "$REPO" ls-remote origin HEAD | cut -f1)
-git -C "$REPO" read-tree "$REMOTE_HEAD"
-git -C "$REPO" add "articles/$SLUG/" index.html 2>/dev/null || true
-TREE=$(git -C "$REPO" write-tree)
-COMMIT=$(git -C "$REPO" commit-tree "$TREE" -p "$REMOTE_HEAD" -m "Publish: $SLUG")
-git -C "$REPO" push origin "${COMMIT}:refs/heads/main"
+rm -f "$REPO/.git/HEAD.lock" "$REPO/.git/index.lock" 2>/dev/null || true
+git -C "$REPO" add index.html
+git -C "$REPO" commit -m "Publish: $SLUG"
+git -C "$REPO" push origin main
 
 echo ""
 echo "✓ Published: https://leavewithdad.com/articles/$SLUG/"
