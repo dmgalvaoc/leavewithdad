@@ -147,12 +147,12 @@ function sendNotification(slug, title, status, date) {
   try {
     var subject, body;
     if (status === "draft") {
-      subject = "📝 Draft ready: " + title;
+      subject = "Draft ready: " + title;
       body    = "Draft ready for review.\n\n"
               + "Article: " + title + "\n"
               + "Slug:    " + slug + "\n"
               + "Review:  " + SITE_URL + "/articles/" + slug + "/\n\n"
-              + "Open Cowork and say \"publish " + slug + "\" to go live, or reply with edits.";
+              + "Open Claude and say \"publish " + slug + "\" to go live, or reply with edits.";
     } else if (status === "published") {
       subject = "✅ Published: " + title;
       body    = "Article published.\n\n"

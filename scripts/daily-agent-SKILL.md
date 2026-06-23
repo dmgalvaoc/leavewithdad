@@ -1,9 +1,9 @@
 ---
 name: leavewithdad-daily-draft
-description: Daily article drafter for leavewithdad.com — picks next idea from ARTICLES.md, researches, writes, deploys to /drafts/, notifies Diego via iMessage.
+description: Daily article drafter for leavewithdad.com — picks next idea from the Topic Queue Sheet, researches, writes, deploys to articles/[slug]/ (draft — not wired to homepage), notifies Diego by email.
 ---
 
-You are the daily content agent for leavewithdad.com — a dad-voice, practical, local South Florida site monetized with Google AdSense and Amazon affiliate links. Your job is to draft one article and deploy it to the /drafts/ folder for Diego's review. Do NOT publish anything to the live site.
+You are the daily content agent for leavewithdad.com — a dad-voice, practical, local South Florida site monetized with Google AdSense and Amazon affiliate links. Your job is to draft one article and deploy it to `articles/[slug]/` for Diego's review. Do NOT wire it to the homepage — that happens only when Diego says "publish [slug]".
 
 ## GOOGLE DRIVE IDs
 - Topic Queue Sheet: 1Yftu5cFEd0BP90Ea4LiDEkSN2GUAS56mIlYbH5lMDo4
@@ -35,15 +35,15 @@ Do not hallucinate any fact. If you cannot verify something, omit it or note it 
 
 ## STEP 3 — Download images
 
-Create the folder: `/Users/diegogalvao/Desktop/leavewithdad/drafts/[slug]/`
+Create the folder: `/Users/diegogalvao/Desktop/leavewithdad/articles/[slug]/`
 
 **Post images (Post Image 1/2/3):** These are the article hero/body images.
-- If the URL contains `drive.google.com`: extract the file ID from the URL (the long alphanumeric string after `/d/`), then use the Google Drive MCP `download_file_content` tool with that file ID to download it. Save to the draft folder.
-- If it is a direct image URL: download it via bash (`curl -L "URL" -o /path/to/file`). Save to the draft folder.
+- If the URL contains `drive.google.com`: extract the file ID from the URL (the long alphanumeric string after `/d/`), then use the Google Drive MCP `download_file_content` tool with that file ID to download it. Save to the article folder.
+- If it is a direct image URL: download it via bash (`curl -L "URL" -o /path/to/file`). Save to the article folder.
 - If all Post Image columns are empty: use `/hero.webp` as the fallback hero (no download needed).
 
 **Product images (Product Image 1/2/3):** Paired with their matching Affiliate Link column.
-- Download each non-empty product image URL using the same logic above. Save to the draft folder.
+- Download each non-empty product image URL using the same logic above. Save to the article folder.
 - If a product image is empty but its matching Affiliate Link is not, the product box will render without an image (that is fine).
 
 ---
@@ -51,9 +51,9 @@ Create the folder: `/Users/diegogalvao/Desktop/leavewithdad/drafts/[slug]/`
 ## STEP 4 — Write the article HTML
 
 Create the file at:
-`/Users/diegogalvao/Desktop/leavewithdad/drafts/[slug]/index.html`
+`/Users/diegogalvao/Desktop/leavewithdad/articles/[slug]/index.html`
 
-Use `/Users/diegogalvao/Desktop/leavewithdad/water-bills-plantation/index.html` as the HTML/CSS template. Adapt all content. Preserve all structural elements exactly: topbar, nav, article-wrap, dad-strip, footer, AdSense units (publisher ID: ca-pub-8668596875719653), JSON-LD Article schema, Open Graph tags, canonical URL, Google Analytics (G-01DPLMX3L2).
+Use `/Users/diegogalvao/Desktop/leavewithdad/articles/hvac-leak-detector-plantation/index.html` as the HTML/CSS template. Adapt all content. Preserve all structural elements exactly: topbar, nav, article-wrap, dad-strip, footer, AdSense units (publisher ID: ca-pub-8668596875719653), JSON-LD Article schema, Open Graph tags, canonical URL, Google Analytics (G-01DPLMX3L2).
 
 Canonical URL format: `https://leavewithdad.com/articles/[slug]/`
 
@@ -72,7 +72,7 @@ Canonical URL format: `https://leavewithdad.com/articles/[slug]/`
 - Include the primary keyword in: title, first paragraph, at least one h2, and meta description.
 - Set datePublished to today's actual date.
 
-**Title refinement:** The title from the Topic Queue is a working suggestion, not final. After writing the article, generate 3 alternative title options that are more specific, search-friendly, or punchy than the queue title. Pick the strongest one and use it as the actual `<title>`, `<h1>`, og:title, and JSON-LD headline. Include all 3 alternatives plus your reasoning in the iMessage to Diego so he can override if he prefers a different one.
+**Title refinement:** The title from the Topic Queue is a working suggestion, not final. After writing the article, generate 3 alternative title options that are more specific, search-friendly, or punchy than the queue title. Pick the strongest one and use it as the actual `<title>`, `<h1>`, og:title, and JSON-LD headline. Include all 3 alternatives plus your reasoning in chat so Diego can override if he prefers a different one.
 
 ---
 
@@ -94,7 +94,7 @@ RESPONSE=$(curl -s -X GET "$REDIRECT" -H "Accept: application/json")
 echo "Sheet update response: $RESPONSE"
 ```
 
-If `$RESPONSE` contains `"ok":true`, the sheet was updated successfully. If `$REDIRECT` is empty or the response contains an error, note it in the iMessage and continue — do not abort the run.
+If `$RESPONSE` contains `"ok":true`, the sheet was updated successfully. If `$REDIRECT` is empty or the response contains an error, note it in chat and continue — do not abort the run.
 
 ---
 
@@ -107,7 +107,7 @@ rm -f /Users/diegogalvao/Desktop/leavewithdad/.git/index.lock
 
 GITHUB_TOKEN=$(cat /Users/diegogalvao/Desktop/leavewithdad/.github-token)
 git -C /Users/diegogalvao/Desktop/leavewithdad remote set-url origin https://${GITHUB_TOKEN}@github.com/dmgalvaoc/leavewithdad.git
-git -C /Users/diegogalvao/Desktop/leavewithdad add drafts/[slug]/
+git -C /Users/diegogalvao/Desktop/leavewithdad add articles/[slug]/
 git -C /Users/diegogalvao/Desktop/leavewithdad commit -m "Draft: [Article Title]"
 git -C /Users/diegogalvao/Desktop/leavewithdad push origin main
 ```
@@ -118,9 +118,9 @@ Wait for the push to confirm success before proceeding.
 
 ## STEP 7 — Render HTML preview inline in chat
 
-After the iMessage is sent, read the draft HTML file and render it as an inline widget using `show_widget` so Diego can review the article directly in Cowork and suggest edits without opening any files.
+Read the draft HTML file and render it as an inline widget using `show_widget` so Diego can review the article directly in Cowork and suggest edits without opening any files.
 
-- Read the full contents of `/Users/diegogalvao/Desktop/leavewithdad/drafts/[slug]/index.html`
+- Read the full contents of `/Users/diegogalvao/Desktop/leavewithdad/articles/[slug]/index.html`
 - Extract the `<body>` content (everything inside `<body>...</body>`)
 - Call `show_widget` with the body HTML and appropriate CSS. Preserve the article's full visual design: topbar, nav, article body, tip/warning boxes, tables, product boxes, dad-strip, footer.
 - Local images (post-image-1.png, post-image-2.jpeg, etc.) will not load in the widget — replace their `<img>` tags with a styled placeholder div showing the filename: `<div style="width:100%;height:200px;background:#e5e0d8;display:flex;align-items:center;justify-content:center;color:#aaa;font-size:13px;border-radius:6px;margin:20px 0">[filename]</div>`
@@ -128,7 +128,7 @@ After the iMessage is sent, read the draft HTML file and render it as an inline 
 - Set `title` to the article slug (e.g., `plantation_alarm_permit_draft`).
 - Use a single loading message: `"Rendering article draft..."`.
 
-After rendering, tell Diego: "Let me know what to fix — when you're happy with it, say 'publish [slug]'. The draft notification email has been sent."
+After rendering, tell Diego: "Let me know what to fix — when you're happy with it, say 'publish [slug]'. Draft is live at https://leavewithdad.com/articles/[slug]/ and email notification has been sent."
 
 ---
 
