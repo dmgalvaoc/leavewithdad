@@ -116,21 +116,7 @@ Wait for the push to confirm success before proceeding.
 
 ---
 
-## STEP 7 — Notify Diego via iMessage
-
-Send an iMessage to `diegomgalvaoc@gmail.com`:
-
-```
-📝 Draft ready: [Article Title]
-
-Review → https://leavewithdad.com/articles/[slug]/
-
-Open Cowork and say "publish [slug]" to go live, or tell me what to fix.
-```
-
----
-
-## STEP 8 — Render HTML preview inline in chat
+## STEP 7 — Render HTML preview inline in chat
 
 After the iMessage is sent, read the draft HTML file and render it as an inline widget using `show_widget` so Diego can review the article directly in Cowork and suggest edits without opening any files.
 
@@ -142,7 +128,7 @@ After the iMessage is sent, read the draft HTML file and render it as an inline 
 - Set `title` to the article slug (e.g., `plantation_alarm_permit_draft`).
 - Use a single loading message: `"Rendering article draft..."`.
 
-After rendering, tell Diego: "Let me know what to fix — when you're happy with it, say 'publish [slug]'."
+After rendering, tell Diego: "Let me know what to fix — when you're happy with it, say 'publish [slug]'. The draft notification email has been sent."
 
 ---
 
@@ -152,4 +138,4 @@ After rendering, tell Diego: "Let me know what to fix — when you're happy with
 - Do NOT push to any branch other than main.
 - Do NOT fabricate facts. Every claim must come from research.
 - Do NOT display product prices — affiliate links only.
-- If the git push fails, send the iMessage anyway and note the failure.
+- If the git push fails, note the failure in chat.
