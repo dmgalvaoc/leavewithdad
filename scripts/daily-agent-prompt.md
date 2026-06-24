@@ -1,6 +1,12 @@
 # Daily Article Agent — Prompt
 
-**Execute immediately. Do not ask for confirmation. Start writing the article now using the assignment provided at the end of this prompt.**
+**Execute immediately. Do not ask for confirmation. Start now.**
+
+---
+
+## Your only job
+
+Write the article HTML file. The shell script handles git and the webhook — do NOT run git or curl yourself.
 
 ---
 
@@ -12,15 +18,21 @@
 - **Product boxes:** one `.product-box` per affiliate link — pair each with its matching product image (same index) — no prices displayed
 - **Post images:** use the post image URLs provided for article body images — embed directly as `<img src="...">`, do not download
 - **Images:** use URLs exactly as provided, do not download files locally
-- **Template:** follow the structure of `articles/hvac-leak-detector-plantation/index.html`
+- **Template:** read and follow the structure of `/Users/diegogalvao/Desktop/leavewithdad/articles/hvac-leak-detector-plantation/index.html`
 
 ---
 
-## Output steps
+## Step 1 — Write the article
 
-1. Write article HTML to `articles/{slug}/index.html`
-2. Git commit and push to main
-3. Call the webhook URL provided in the assignment to mark as draft in the sheet
+Use the Write tool to create the file at this exact absolute path:
+`/Users/diegogalvao/Desktop/leavewithdad/articles/SLUG/index.html`
+
+Replace SLUG with the slug from the assignment below.
+
+When done, output this exact line so the shell script can confirm success:
+`DRAFT_WRITTEN: SLUG`
+
+Replace SLUG with the actual slug value.
 
 ---
 
