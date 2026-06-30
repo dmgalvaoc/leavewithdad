@@ -68,7 +68,7 @@ If the sheet has a value in **Post Image 1**, it MUST be embedded as a `<div cla
 
 If the sheet has a value in **Post Image 2** (or more), each additional image MUST be embedded inline inside the article body at a logical break between sections.
 
-For Google Drive share links (`https://drive.google.com/file/d/FILE_ID/view`), convert to the thumbnail URL: `https://drive.google.com/thumbnail?id=FILE_ID&sz=w1600` — this avoids the 403 hotlink block that `uc?export=view` causes.
+For Google Drive share links, **never link to Drive directly** — both `uc?export=view` and `thumbnail?id=` return 403 when embedded. Instead: download the file using the Drive MCP (`download_file_content`), save it as `photo-1.jpg` / `photo-2.jpg` inside the article folder, and reference it with a relative path (`photo-1.jpg`). Commit the image files to the repo so they're served from GitHub Pages.
 
 If the sheet has no Post Image values, omit the block entirely — do not invent placeholder images.
 
