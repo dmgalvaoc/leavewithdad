@@ -68,7 +68,7 @@ If the sheet has a value in **Post Image 1**, it MUST be embedded as a `<div cla
 
 If the sheet has a value in **Post Image 2** (or more), each additional image MUST be embedded inline inside the article body at a logical break between sections.
 
-For Google Drive share links (`https://drive.google.com/file/d/FILE_ID/view`), convert to a direct image URL: `https://drive.google.com/uc?export=view&id=FILE_ID`
+For Google Drive share links (`https://drive.google.com/file/d/FILE_ID/view`), convert to the thumbnail URL: `https://drive.google.com/thumbnail?id=FILE_ID&sz=w1600` — this avoids the 403 hotlink block that `uc?export=view` causes.
 
 If the sheet has no Post Image values, omit the block entirely — do not invent placeholder images.
 
